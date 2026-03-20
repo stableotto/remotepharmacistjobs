@@ -1,0 +1,33 @@
+name: Update Jobs
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - run: python scripts/filter_jobs.py
+      - run: python scripts/scrape_details.py
+      - run: python scripts/generate_pages.py
+      - run: python scripts/generate_category_pages.py
+      - run: python scripts/generate_sitemap.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site/jobs.json site/jobs/ site/logos/ site/category/ site/categories.html site/sitemap.xml
+          git diff --staged --quiet || git commit -m "Update jobs $(date -u +%Y-%m-%d)"
+          git push
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy site/ --project-name=remotepharmacistjobs
