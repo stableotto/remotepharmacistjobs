@@ -76,6 +76,105 @@ CATEGORIES = [
         "meta_description": "Browse remote pharmacy manager, supervisor, and lead pharmacist jobs. Direct employer listings updated daily.",
         "intro": "Find remote pharmacy management roles including pharmacy managers, supervisors, team leads, and senior individual contributors. Direct links to employer career pages.",
     },
+    # ── "Work from home" synonym pages (high volume, 1K–10K) ──
+    {
+        "name": "Work From Home Pharmacist",
+        "slug": "work-from-home-pharmacist-jobs",
+        "match_all": True,
+        "match_all_filter": "pharmacist",
+        "h1": "Work From Home Pharmacist Jobs",
+        "meta_description": "Browse work from home pharmacist jobs updated daily. Direct employer listings only — no recruiters, no staffing agencies. Apply straight to the company.",
+        "intro": "Find work from home pharmacist positions from top employers. Every listing links directly to the company's career page — no recruiters, no middlemen.",
+    },
+    {
+        "name": "Work From Home Pharmacy Tech",
+        "slug": "work-from-home-pharmacy-tech-jobs",
+        "match_all": True,
+        "match_all_filter": "tech",
+        "h1": "Work From Home Pharmacy Tech Jobs",
+        "meta_description": "Browse work from home pharmacy technician jobs updated daily. Direct employer listings only — apply straight to the hiring company.",
+        "intro": "Find work from home pharmacy technician positions. Every listing links directly to the employer's career page — no recruiters, no middlemen.",
+    },
+    {
+        "name": "Remote PharmD",
+        "slug": "remote-pharmd-jobs",
+        "match_all": True,
+        "match_all_filter": "pharmacist",
+        "h1": "Remote PharmD Jobs",
+        "meta_description": "Browse remote PharmD jobs updated daily. Clinical, consulting, and industry positions for Doctor of Pharmacy professionals. Direct employer listings.",
+        "intro": "Find remote positions for PharmD professionals including clinical pharmacist, consulting, MTM, pharmacovigilance, and pharmacy leadership roles. Direct links to employer career pages.",
+    },
+    {
+        "name": "Online Pharmacy Tech",
+        "slug": "online-pharmacy-tech-jobs",
+        "match_all": True,
+        "match_all_filter": "tech",
+        "h1": "Online Pharmacy Tech Jobs",
+        "meta_description": "Browse online pharmacy technician jobs you can do from home. Updated daily with direct employer listings only — no recruiters.",
+        "intro": "Find online pharmacy technician jobs from top employers. Work remotely as a pharmacy tech — every listing links directly to the company's career page.",
+    },
+    {
+        "name": "Virtual Pharmacist",
+        "slug": "virtual-pharmacist-jobs",
+        "match_all": True,
+        "h1": "Virtual Pharmacist Jobs",
+        "meta_description": "Browse virtual pharmacist jobs updated daily. Telepharmacy, remote clinical, and work from home pharmacy positions. Direct employer listings only.",
+        "intro": "Find virtual pharmacist and telepharmacy positions from top employers. Every listing links directly to the company's career page — no recruiters, no middlemen.",
+    },
+    # ── Niche categories (medium volume, 100–1K) ──
+    {
+        "name": "MTM Pharmacist",
+        "slug": "remote-mtm-pharmacist-jobs",
+        "keywords": ["mtm", "medication therapy management", "medication management"],
+        "search_description": True,
+        "h1": "Remote MTM Pharmacist Jobs",
+        "meta_description": "Browse remote MTM pharmacist jobs. Medication therapy management positions updated daily. Direct employer listings only.",
+        "intro": "Find remote medication therapy management (MTM) pharmacist positions. Conduct comprehensive medication reviews and optimize patient outcomes — all from home.",
+    },
+    {
+        "name": "Remote Specialty Pharmacy",
+        "slug": "remote-specialty-pharmacy-jobs",
+        "keywords": ["specialty pharmacy", "specialty pharmacist"],
+        "search_description": True,
+        "h1": "Remote Specialty Pharmacy Jobs",
+        "meta_description": "Browse remote specialty pharmacy jobs updated daily. Specialty pharmacist and technician positions. Direct employer listings.",
+        "intro": "Find remote specialty pharmacy positions including specialty pharmacists, technicians, and coordinators. Direct links to employer career pages.",
+    },
+    {
+        "name": "Part-Time Remote Pharmacist",
+        "slug": "part-time-remote-pharmacist-jobs",
+        "keywords": ["part-time", "part time", "per diem", "prn"],
+        "h1": "Part-Time Remote Pharmacist Jobs",
+        "meta_description": "Browse part-time remote pharmacist jobs. PRN, per diem, and flexible pharmacy positions updated daily. Direct employer listings.",
+        "intro": "Find part-time, PRN, and per diem remote pharmacist positions. Flexible schedules with direct links to employer career pages — no recruiters.",
+    },
+    {
+        "name": "Remote Verification Pharmacist",
+        "slug": "remote-verification-pharmacist-jobs",
+        "keywords": ["verification", "order entry", "order review"],
+        "search_description": True,
+        "h1": "Remote Verification Pharmacist Jobs",
+        "meta_description": "Browse remote verification pharmacist jobs. Prescription verification and order entry positions updated daily. Direct employer listings.",
+        "intro": "Find remote prescription verification and order entry pharmacist positions. Review and verify medication orders from home. Direct links to employer career pages.",
+    },
+    {
+        "name": "Remote Oncology Pharmacist",
+        "slug": "remote-oncology-pharmacist-jobs",
+        "keywords": ["oncology", "oncologist", "cancer"],
+        "search_description": True,
+        "h1": "Remote Oncology Pharmacist Jobs",
+        "meta_description": "Browse remote oncology pharmacist jobs. Cancer care and oncology pharmacy positions updated daily. Direct employer listings.",
+        "intro": "Find remote oncology pharmacist positions in cancer care, clinical oncology, and hematology-oncology pharmacy. Direct links to employer career pages.",
+    },
+    {
+        "name": "Remote Order Entry Pharmacist",
+        "slug": "remote-order-entry-pharmacist-jobs",
+        "keywords": ["order entry", "data entry", "order processing"],
+        "search_description": True,
+        "h1": "Remote Order Entry Pharmacist Jobs",
+        "meta_description": "Browse remote order entry pharmacist jobs. Prescription processing and order entry positions updated daily. Direct employer listings.",
+        "intro": "Find remote order entry and prescription processing pharmacist positions. Process and verify medication orders from home. Direct links to employer career pages.",
+    },
 ]
 
 AVATAR_COLORS = [
@@ -98,7 +197,22 @@ def get_avatar_color(company):
 
 def matches_category(job, cat):
     title = job.get("title", "").lower()
-    matched = any(kw in title for kw in cat["keywords"])
+
+    # "match_all" pages show all jobs (or filtered subset) — synonym pages like WFH, virtual
+    if cat.get("match_all"):
+        filt = cat.get("match_all_filter", "")
+        if filt:
+            return filt in title
+        return True
+
+    keywords = cat.get("keywords", [])
+    matched = any(kw in title for kw in keywords)
+
+    # Optionally also search the job description for keyword matches
+    if not matched and cat.get("search_description"):
+        desc = job.get("description_html", "").lower()
+        matched = any(kw in desc for kw in keywords)
+
     if not matched:
         return False
     # If category requires secondary keyword, check that too
