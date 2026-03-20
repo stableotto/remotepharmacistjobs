@@ -397,6 +397,23 @@ body {
   max-width: 1100px;
 }
 
+.expired-banner {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #92400e;
+  line-height: 1.5;
+}
+
+.expired-banner a {
+  color: #92400e;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
 .detail-page-layout {
   display: grid;
   grid-template-columns: 1fr 340px;

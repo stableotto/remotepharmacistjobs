@@ -56,7 +56,7 @@
       const detailUrl = job.slug ? `jobs/${encodeURIComponent(job.slug)}.html` : (job.absolute_url || job.url || '#');
       const isExternal = !job.slug;
       const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-      const jobDate = job.scraped_at || job.updated_at;
+      const jobDate = job.posted_at || job.first_seen || job.scraped_at;
       const date = timeAgo(jobDate);
       const skillLevel = job.skill_level || '';
       const skillMap = { entry: 'Entry-level', mid: 'Mid-level', senior: 'Senior' };
@@ -95,7 +95,9 @@
     fetch('jobs.json')
       .then(r => r.json())
       .then(data => {
-        const jobs = data.jobs || [];
+        const allJobs = data.jobs || [];
+        // Only show active (non-expired) jobs on the homepage
+        const jobs = allJobs.filter(j => !j.expired);
         const countEl = document.getElementById('job-count');
         const updatedEl = document.getElementById('last-updated');
 

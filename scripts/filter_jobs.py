@@ -114,7 +114,28 @@ def is_remote(location: str) -> bool:
     return any(kw in lower for kw in REMOTE_KEYWORDS)
 
 
+RETENTION_DAYS = 30  # Keep jobs for 30 days after they disappear from aggregator
+
+
 def main():
+    now = datetime.now(timezone.utc)
+    now_str = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    # Load existing jobs.json to preserve first_seen and enrichment data
+    out_path = "site/jobs.json"
+    existing_jobs = {}
+    try:
+        with open(out_path) as f:
+            old_data = json.load(f)
+        for job in old_data.get("jobs", []):
+            url = job.get("url") or job.get("absolute_url", "")
+            if url:
+                existing_jobs[url] = job
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+
+    print(f"Loaded {len(existing_jobs)} existing jobs from {out_path}")
+
     print("Fetching latest release info...")
     resp = requests.get(RELEASE_API, timeout=30)
     resp.raise_for_status()
@@ -136,7 +157,8 @@ def main():
     all_jobs = resp.json()
     print(f"Downloaded {len(all_jobs):,} total jobs")
 
-    # Filter
+    # Filter new jobs from aggregator
+    fresh_urls = set()
     filtered = []
     seen_urls = set()
     for job in all_jobs:
@@ -151,6 +173,7 @@ def main():
         if url in seen_urls:
             continue
         seen_urls.add(url)
+        fresh_urls.add(url)
 
         job["company"] = clean_company_name(job.get("company", ""))
 
@@ -159,22 +182,64 @@ def main():
         slug = f"{slug}-{hashlib.md5(url.encode()).hexdigest()[:6]}"
         job["slug"] = slug
 
+        # Merge with existing data: preserve first_seen, enrichment (description, salary, logo)
+        if url in existing_jobs:
+            old = existing_jobs[url]
+            job["first_seen"] = old.get("first_seen", now_str)
+            # Preserve enrichment data from scrape_details.py
+            for key in ("description_html", "salary", "logo_url", "posted_at"):
+                if key in old and key not in job:
+                    job[key] = old[key]
+        else:
+            job["first_seen"] = now_str
+
+        job["last_seen"] = now_str
+        job["expired"] = False
+
         filtered.append(job)
 
-    # Sort by scraped_at descending
-    filtered.sort(key=lambda j: j.get("scraped_at", ""), reverse=True)
+    # Retain old jobs not in today's aggregator (within retention window)
+    retained = 0
+    expired = 0
+    for url, old_job in existing_jobs.items():
+        if url in fresh_urls:
+            continue  # Already in filtered
+
+        last_seen = old_job.get("last_seen", old_job.get("scraped_at", ""))
+        if not last_seen:
+            continue
+
+        try:
+            last_dt = datetime.fromisoformat(last_seen.replace("Z", "+00:00"))
+            days_gone = (now - last_dt).days
+        except (ValueError, AttributeError):
+            continue
+
+        if days_gone <= RETENTION_DAYS:
+            old_job["expired"] = days_gone >= 7  # Mark as expired after 7 days missing
+            filtered.append(old_job)
+            retained += 1
+            if old_job["expired"]:
+                expired += 1
+
+    # Sort: active jobs first (by first_seen desc), expired jobs last
+    filtered.sort(key=lambda j: (j.get("expired", False), ""), reverse=False)
+    active = [j for j in filtered if not j.get("expired")]
+    expired_jobs = [j for j in filtered if j.get("expired")]
+    active.sort(key=lambda j: j.get("first_seen", ""), reverse=True)
+    expired_jobs.sort(key=lambda j: j.get("last_seen", ""), reverse=True)
+    filtered = active + expired_jobs
 
     output = {
-        "last_updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "total_jobs": len(filtered),
+        "last_updated": now_str,
+        "total_jobs": len(active),
         "jobs": filtered,
     }
 
-    out_path = "site/jobs.json"
     with open(out_path, "w") as f:
         json.dump(output, f, indent=2)
 
-    print(f"Wrote {len(filtered)} jobs to {out_path}")
+    print(f"Wrote {len(filtered)} jobs to {out_path} ({len(active)} active, {retained} retained, {expired} expired)")
 
 
 if __name__ == "__main__":

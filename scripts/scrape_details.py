@@ -115,6 +115,11 @@ def scrape_greenhouse(job):
     salary = None
     logo_url = None
 
+    # Extract real posted date from Greenhouse
+    gh_updated = data.get("updated_at", "")
+    if gh_updated:
+        job["posted_at"] = gh_updated
+
     # Check pay_input_ranges
     pay_ranges = data.get("pay_input_ranges", [])
     if pay_ranges:
@@ -159,6 +164,11 @@ def scrape_workday(job):
     description_html = sanitize_html(posting_info.get("jobDescription", ""))
     salary = None
     logo_url = None
+
+    # Extract real posted date from Workday
+    wd_posted = posting_info.get("postedOn") or posting_info.get("startDate") or posting_info.get("timePosted")
+    if wd_posted:
+        job["posted_at"] = wd_posted
 
     # Check for logo in Workday response
     logo = posting_info.get("companyLogoUrl") or data.get("brandBanner", {}).get("logoUrl")

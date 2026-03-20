@@ -414,7 +414,8 @@ INDEX_TEMPLATE = Template("""\
 def main():
     with open("site/jobs.json") as f:
         data = json.load(f)
-    jobs = data.get("jobs", [])
+    # Only show active (non-expired) jobs on category pages
+    jobs = [j for j in data.get("jobs", []) if not j.get("expired")]
 
     os.makedirs("site/category", exist_ok=True)
 

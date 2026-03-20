@@ -25,7 +25,7 @@ PAGE_TEMPLATE = Template("""\
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="${title} at ${company}">
   <meta name="twitter:description" content="${meta_description}">
-  <link rel="canonical" href="${canonical_url}">
+  ${noindex}<link rel="canonical" href="${canonical_url}">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
@@ -53,6 +53,7 @@ PAGE_TEMPLATE = Template("""\
       <a href="../">Home</a> &rsaquo; <a href="../">Jobs</a> &rsaquo; <span>${title_short}</span>
     </nav>
 
+    ${expired_banner}
     <div class="detail-page-layout">
       <div class="detail-main">
         <div class="detail-company-row">
@@ -171,7 +172,7 @@ def build_json_ld(job):
     desc_html = job.get("description_html", "")
     desc_text = strip_html_tags(desc_html) if desc_html else job.get("title", "")
 
-    date_posted = job.get("scraped_at", job.get("updated_at", ""))
+    date_posted = job.get("posted_at") or job.get("first_seen") or job.get("scraped_at", "")
     valid_through = ""
     if date_posted:
         try:
@@ -269,8 +270,10 @@ def generate_page(job):
     salary = job.get("salary")
     ats = get_ats_name(job)
     apply_url = job.get("absolute_url") or job.get("url", "#")
-    date_str = job.get("scraped_at") or job.get("updated_at", "")
+    # Use posted_at (from ATS) > first_seen (when we found it) > scraped_at (fallback)
+    date_str = job.get("posted_at") or job.get("first_seen") or job.get("scraped_at", "")
     skill_level = job.get("skill_level", "")
+    is_expired = job.get("expired", False)
 
     description = job.get("description_html", "")
     if not description:
@@ -331,6 +334,18 @@ def generate_page(job):
 
     logo_html = build_logo_html(job, "detail")
 
+    # Expired job handling
+    noindex = '<meta name="robots" content="noindex">\n  ' if is_expired else ''
+    expired_banner = ''
+    if is_expired:
+        expired_banner = (
+            '<div class="expired-banner">'
+            '<strong>This job may no longer be available.</strong> '
+            'It was last seen on our sources ' + html.escape(format_date(job.get("last_seen", ""))) + '. '
+            '<a href="../">Browse active jobs</a>'
+            '</div>'
+        )
+
     page_html = PAGE_TEMPLATE.substitute(
         title=html.escape(title),
         company=html.escape(company),
@@ -346,6 +361,8 @@ def generate_page(job):
         description=description,
         json_ld=build_json_ld(job),
         sidebar_rows=sidebar_rows,
+        noindex=noindex,
+        expired_banner=expired_banner,
     )
 
     return slug, page_html
