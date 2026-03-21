@@ -541,8 +541,12 @@ def main():
 
         kept_jobs.append(job)
 
-    data["jobs"] = kept_jobs
-    data["total_jobs"] = len([j for j in kept_jobs if not j.get("expired")])
+    # Re-sort by posted_at (most recent first) now that all dates are populated
+    active = [j for j in kept_jobs if not j.get("expired")]
+    expired = [j for j in kept_jobs if j.get("expired")]
+    active.sort(key=lambda j: j.get("posted_at") or j.get("first_seen") or "1970-01-01", reverse=True)
+    data["jobs"] = active + expired
+    data["total_jobs"] = len(active)
 
     with open(jobs_path, "w") as f:
         json.dump(data, f, indent=2)

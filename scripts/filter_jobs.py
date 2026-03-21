@@ -226,7 +226,7 @@ def main():
     # Sort: active jobs first by posted_at (most recent first), expired jobs last
     active = [j for j in filtered if not j.get("expired")]
     expired_jobs = [j for j in filtered if j.get("expired")]
-    active.sort(key=lambda j: j.get("posted_at") or j.get("first_seen", ""), reverse=True)
+    active.sort(key=lambda j: j.get("posted_at") or j.get("first_seen") or "1970-01-01", reverse=True)
     expired_jobs.sort(key=lambda j: j.get("last_seen", ""), reverse=True)
     filtered = active + expired_jobs
 
