@@ -286,8 +286,6 @@ CATEGORY_TEMPLATE = Template("""\
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFTSN493HQ"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MFTSN493HQ');</script>
   <script type="application/ld+json">
   ${json_ld}
   </script>
