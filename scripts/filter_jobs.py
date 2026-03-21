@@ -185,7 +185,8 @@ def main():
         # Merge with existing data: preserve first_seen, enrichment (description, salary, logo)
         if url in existing_jobs:
             old = existing_jobs[url]
-            job["first_seen"] = old.get("first_seen", now_str)
+            # Use the oldest known date as first_seen: existing first_seen > posted_at > now
+            job["first_seen"] = old.get("first_seen") or old.get("posted_at") or now_str
             # Preserve enrichment data from scrape_details.py
             for key in ("description_html", "salary", "logo_url", "posted_at"):
                 if key in old and key not in job:
@@ -222,11 +223,10 @@ def main():
             if old_job["expired"]:
                 expired += 1
 
-    # Sort: active jobs first (by first_seen desc), expired jobs last
-    filtered.sort(key=lambda j: (j.get("expired", False), ""), reverse=False)
+    # Sort: active jobs first by posted_at (most recent first), expired jobs last
     active = [j for j in filtered if not j.get("expired")]
     expired_jobs = [j for j in filtered if j.get("expired")]
-    active.sort(key=lambda j: j.get("first_seen", ""), reverse=True)
+    active.sort(key=lambda j: j.get("posted_at") or j.get("first_seen", ""), reverse=True)
     expired_jobs.sort(key=lambda j: j.get("last_seen", ""), reverse=True)
     filtered = active + expired_jobs
 

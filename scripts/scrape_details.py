@@ -493,10 +493,56 @@ def main():
 
         time.sleep(1.0)
 
+    # Remove newly-discovered jobs with old ATS posting dates.
+    # If we just found a job today (first_seen within last 24h) but the ATS says
+    # it was posted more than 2 days ago, drop it — we only want fresh listings.
+    from datetime import datetime, timezone, timedelta
+    now = datetime.now(timezone.utc)
+    max_post_age_days = 2
+    before_count = len(jobs)
+    kept_jobs = []
+    dropped = 0
+    for job in jobs:
+        first_seen = job.get("first_seen", "")
+        posted_at = job.get("posted_at", "")
+
+        # Only filter newly-discovered jobs (first_seen within last 24h)
+        if first_seen:
+            try:
+                fs_dt = datetime.fromisoformat(first_seen.replace("Z", "+00:00"))
+                if fs_dt.tzinfo is None:
+                    fs_dt = fs_dt.replace(tzinfo=timezone.utc)
+                is_new = (now - fs_dt).total_seconds() < 86400
+            except (ValueError, AttributeError):
+                is_new = False
+        else:
+            is_new = False
+
+        if is_new and posted_at:
+            try:
+                pa_dt = datetime.fromisoformat(posted_at.replace("Z", "+00:00"))
+                # Ensure timezone-aware comparison
+                if pa_dt.tzinfo is None:
+                    pa_dt = pa_dt.replace(tzinfo=timezone.utc)
+                age_days = (now - pa_dt).days
+                if age_days > max_post_age_days:
+                    dropped += 1
+                    print(f"  DROPPED (posted {age_days}d ago): {job.get('title', '')[:50]}")
+                    continue
+            except (ValueError, AttributeError):
+                pass
+
+        kept_jobs.append(job)
+
+    data["jobs"] = kept_jobs
+    data["total_jobs"] = len([j for j in kept_jobs if not j.get("expired")])
+
     with open(jobs_path, "w") as f:
         json.dump(data, f, indent=2)
 
     print(f"\nDone: {success} scraped, {salary_count} with salary, {logo_count} with logo, {errors} errors out of {total} jobs")
+    if dropped:
+        print(f"Dropped {dropped} stale jobs (posted >{max_post_age_days}d ago, first seen today)")
 
 
 if __name__ == "__main__":
