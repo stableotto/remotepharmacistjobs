@@ -498,7 +498,7 @@ def main():
     # it was posted more than 2 days ago, drop it — we only want fresh listings.
     from datetime import datetime, timezone, timedelta
     now = datetime.now(timezone.utc)
-    max_post_age_days = 2
+    max_post_age_days = 7
     before_count = len(jobs)
     kept_jobs = []
     dropped = 0
@@ -518,16 +518,23 @@ def main():
         else:
             is_new = False
 
-        if is_new and posted_at:
+        if posted_at:
             try:
                 pa_dt = datetime.fromisoformat(posted_at.replace("Z", "+00:00"))
-                # Ensure timezone-aware comparison
                 if pa_dt.tzinfo is None:
                     pa_dt = pa_dt.replace(tzinfo=timezone.utc)
                 age_days = (now - pa_dt).days
-                if age_days > max_post_age_days:
+
+                # Drop any job posted more than 30 days ago
+                if age_days > 30:
                     dropped += 1
                     print(f"  DROPPED (posted {age_days}d ago): {job.get('title', '')[:50]}")
+                    continue
+
+                # Drop newly discovered jobs posted more than 7 days ago
+                if is_new and age_days > max_post_age_days:
+                    dropped += 1
+                    print(f"  DROPPED (posted {age_days}d ago, new): {job.get('title', '')[:50]}")
                     continue
             except (ValueError, AttributeError):
                 pass
