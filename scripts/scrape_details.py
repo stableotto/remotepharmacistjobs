@@ -115,10 +115,10 @@ def scrape_greenhouse(job):
     salary = None
     logo_url = None
 
-    # Extract real posted date from Greenhouse
-    gh_updated = data.get("updated_at", "")
-    if gh_updated:
-        job["posted_at"] = gh_updated
+    # Extract real posted date from Greenhouse (first_published is the original posting date)
+    gh_posted = data.get("first_published") or data.get("updated_at", "")
+    if gh_posted:
+        job["posted_at"] = gh_posted
 
     # Check pay_input_ranges
     pay_ranges = data.get("pay_input_ranges", [])
@@ -165,8 +165,8 @@ def scrape_workday(job):
     salary = None
     logo_url = None
 
-    # Extract real posted date from Workday
-    wd_posted = posting_info.get("postedOn") or posting_info.get("startDate") or posting_info.get("timePosted")
+    # Extract real posted date from Workday (startDate is the ISO date)
+    wd_posted = posting_info.get("startDate", "")
     if wd_posted:
         job["posted_at"] = wd_posted
 
@@ -215,6 +215,26 @@ def scrape_lever(job):
     url = job.get("url", "")
     if not url:
         return None, None, None
+
+    # Try Lever API for posted date
+    # URL format: https://jobs.lever.co/{company}/{uuid}
+    lever_match = re.search(r'jobs\.lever\.co/([^/]+)/([a-f0-9-]+)', url)
+    if lever_match:
+        company_slug, posting_id = lever_match.groups()
+        try:
+            api_resp = requests.get(
+                f"https://api.lever.co/v0/postings/{company_slug}/{posting_id}",
+                timeout=10
+            )
+            if api_resp.status_code == 200:
+                api_data = api_resp.json()
+                created_ms = api_data.get("createdAt")
+                if created_ms:
+                    from datetime import datetime, timezone
+                    dt = datetime.fromtimestamp(created_ms / 1000, tz=timezone.utc)
+                    job["posted_at"] = dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+        except Exception:
+            pass
 
     resp = requests.get(url, timeout=15)
     if resp.status_code != 200:
