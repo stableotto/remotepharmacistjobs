@@ -43,6 +43,23 @@ body {
   gap: 24px;
 }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #1a1a2e;
+  margin: 5px 0;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
 .site-nav-links a {
   font-size: 0.875rem;
   font-weight: 500;
@@ -591,6 +608,12 @@ body {
 
 .apply-button:hover {
   background: #2d2d44;
+  color: #fff;
+}
+
+.apply-button:active,
+.apply-button:visited {
+  color: #fff;
 }
 
 .sidebar-card {
@@ -870,17 +893,45 @@ body {
     padding-top: 0;
   }
 
+  .nav-toggle {
+    display: block;
+  }
+
   .site-nav-inner {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 12px;
   }
 
   .site-nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f5;
     gap: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .site-nav-links.open {
+    display: flex;
   }
 
   .site-nav-links a {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
+    padding: 4px 0;
+  }
+
+  .site-nav-links .nav-cta {
+    text-align: center;
+  }
+
+  .site-nav {
+    position: sticky;
+    top: 0;
   }
 
   .job-row {

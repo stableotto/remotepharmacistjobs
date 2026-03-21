@@ -296,6 +296,9 @@ CATEGORY_TEMPLATE = Template("""\
       <a href="../" class="site-nav-logo">
         <img src="../logo.svg" alt="Remote Pharmacist Jobs" height="32">
       </a>
+      <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
       <div class="site-nav-links">
         <a href="../">Jobs</a>
         <a href="../categories.html" class="active">Categories</a>
@@ -371,6 +374,9 @@ INDEX_TEMPLATE = Template("""\
       <a href="/" class="site-nav-logo">
         <img src="logo.svg" alt="Remote Pharmacist Jobs" height="32">
       </a>
+      <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
       <div class="site-nav-links">
         <a href="/">Jobs</a>
         <a href="categories.html" class="active">Categories</a>
