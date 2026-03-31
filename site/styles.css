@@ -828,6 +828,173 @@ body {
   line-height: 1.6;
 }
 
+/* ── Similar jobs ── */
+.similar-jobs {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #f0f0f5;
+}
+
+.similar-jobs h2 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+}
+
+/* ── Company pages ── */
+.company-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.company-hero-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: contain;
+  background: #f9fafb;
+  border: 1px solid #f0f0f5;
+  flex-shrink: 0;
+}
+
+.company-hero-logo-fallback {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.company-hero-text h1 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.company-hero-text p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* ── Salary page ── */
+.salary-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 16px 0 32px;
+}
+
+.salary-stat-card {
+  background: #f9fafb;
+  border: 1px solid #f0f0f5;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.salary-stat-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.salary-stat-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.salary-stat-sub {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.salary-table-wrap {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.salary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.salary-table th {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid #e5e7eb;
+  font-weight: 500;
+  color: #1a1a2e;
+  font-size: 0.85rem;
+}
+
+.salary-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f5;
+  color: #374151;
+}
+
+.salary-table tbody tr:hover {
+  background: #faf8ff;
+}
+
+.salary-top-jobs {
+  margin: 16px 0;
+}
+
+.salary-job-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f5;
+  gap: 16px;
+}
+
+.salary-job-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+.salary-job-title a {
+  color: #1a1a2e;
+  text-decoration: none;
+}
+
+.salary-job-title a:hover {
+  color: #7c3aed;
+}
+
+.salary-job-company {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.salary-job-pay {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1a1a2e;
+  white-space: nowrap;
+}
+
 /* ── Site footer ── */
 .site-footer {
   border-top: 1px solid #f0f0f5;
@@ -994,5 +1161,21 @@ body {
 
   .content-hero h1 {
     font-size: 1.5rem;
+  }
+
+  .company-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .salary-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .salary-job-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 }

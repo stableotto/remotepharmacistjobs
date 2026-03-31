@@ -20,6 +20,7 @@ def main():
     urls.append(("about.html", "0.5", "monthly", today))
     urls.append(("post-a-job.html", "0.5", "monthly", today))
     urls.append(("categories.html", "0.8", "daily", today))
+    urls.append(("salary.html", "0.7", "daily", today))
 
     # Category pages
     cat_dir = "site/category"
@@ -27,6 +28,13 @@ def main():
         for fname in sorted(os.listdir(cat_dir)):
             if fname.endswith(".html"):
                 urls.append((f"category/{fname}", "0.8", "daily", today))
+
+    # Company pages
+    company_dir = "site/companies"
+    if os.path.isdir(company_dir):
+        for fname in sorted(os.listdir(company_dir)):
+            if fname.endswith(".html"):
+                urls.append((f"companies/{fname}", "0.7", "daily", today))
 
     # Job detail pages
     for job in data.get("jobs", []):

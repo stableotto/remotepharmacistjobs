@@ -94,6 +94,8 @@ PAGE_TEMPLATE = Template("""\
         Apply for this job
       </a>
     </div>
+
+    ${similar_jobs_html}
   </div>
 
   <footer class="site-footer">
@@ -184,11 +186,14 @@ def build_json_ld(job):
         except (ValueError, AttributeError):
             pass
 
+    # Google for Jobs prefers HTML description when available
+    description_for_ld = desc_html if desc_html else desc_text
+
     ld = {
         "@context": "https://schema.org",
         "@type": "JobPosting",
         "title": job.get("title", ""),
-        "description": desc_text,
+        "description": description_for_ld,
         "datePosted": date_posted,
         "employmentType": "FULL_TIME",
         "jobLocationType": "TELECOMMUTE",
@@ -203,10 +208,11 @@ def build_json_ld(job):
                 "addressCountry": "US",
             }
         },
-        "applicantLocationRequirements": {
+        "applicantLocationRequirements": [{
             "@type": "Country",
             "name": "US",
-        },
+        }],
+        "directApply": True,
     }
     if valid_through:
         ld["validThrough"] = valid_through
@@ -232,6 +238,12 @@ def build_json_ld(job):
     url = job.get("absolute_url") or job.get("url", "")
     if url:
         ld["url"] = url
+
+    logo_url = job.get("logo_url", "")
+    if logo_url:
+        if logo_url.startswith("logos/"):
+            logo_url = f"{SITE_URL}/{logo_url}"
+        ld["hiringOrganization"]["logo"] = logo_url
 
     return json.dumps(ld, indent=2)
 
@@ -262,7 +274,87 @@ def build_logo_html(job, size="detail"):
     return f'<div class="{cls_fb}" style="background-color:{color}">{initial}</div>'
 
 
-def generate_page(job):
+def build_similar_jobs_html(job, all_jobs, max_count=4):
+    """Find similar jobs based on title keywords and company."""
+    current_slug = job.get("slug", "")
+    current_title = job.get("title", "").lower()
+    current_company = job.get("company", "")
+
+    # Score each job for similarity
+    title_words = set(re.sub(r'[^a-z\s]', '', current_title).split())
+    # Remove common stop words
+    stop_words = {'the', 'a', 'an', 'and', 'or', 'of', 'at', 'in', 'for', 'to', 'is', 'remote'}
+    title_words -= stop_words
+
+    scored = []
+    for other in all_jobs:
+        other_slug = other.get("slug", "")
+        if other_slug == current_slug or not other_slug:
+            continue
+        if other.get("expired"):
+            continue
+
+        other_title = other.get("title", "").lower()
+        other_words = set(re.sub(r'[^a-z\s]', '', other_title).split()) - stop_words
+
+        # Score: shared title words + company match bonus
+        shared = len(title_words & other_words)
+        score = shared
+        if other.get("company") == current_company:
+            score += 2  # Same company bonus
+
+        if score > 0:
+            scored.append((score, other))
+
+    scored.sort(key=lambda x: -x[0])
+    similar = [j for _, j in scored[:max_count]]
+
+    if not similar:
+        return ""
+
+    rows = []
+    for sj in similar:
+        company = html.escape(sj.get("company", "Unknown"))
+        title = html.escape(sj.get("title", ""))
+        slug = sj.get("slug", "")
+        color = get_avatar_color(company)
+        initial = company[0].upper() if company else "?"
+        logo_url = sj.get("logo_url", "")
+
+        salary_display = ""
+        if sj.get("salary"):
+            salary_display = f'<span class="meta-dot"> \u00b7 </span><span class="meta-salary">{html.escape(sj["salary"]["display"])}</span>'
+
+        if logo_url:
+            if logo_url.startswith("logos/"):
+                logo_url = f"../{logo_url}"
+            logo_html = (
+                f'<img class="job-logo" src="{html.escape(logo_url)}" alt="{company}" '
+                f'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+                f'<div class="job-logo-fallback" style="background-color:{color};display:none">{html.escape(initial)}</div>'
+            )
+        else:
+            logo_html = f'<div class="job-logo-fallback" style="background-color:{color}">{html.escape(initial)}</div>'
+
+        rows.append(f'''<a href="{slug}.html" class="job-row">
+      <div class="job-row-left">
+        <div class="job-logo-wrap">{logo_html}</div>
+        <div class="job-row-info">
+          <div class="job-row-title">{title}</div>
+          <div class="job-row-meta">{company}{salary_display}</div>
+        </div>
+      </div>
+    </a>''')
+
+    return f'''<div class="similar-jobs">
+      <h2>Similar Jobs</h2>
+      <div class="jobs-list">
+        {"".join(rows)}
+      </div>
+    </div>'''
+
+
+def generate_page(job, all_jobs=None):
     slug = job.get("slug", "")
     if not slug:
         return None
@@ -349,6 +441,11 @@ def generate_page(job):
             '</div>'
         )
 
+    # Build similar jobs section
+    similar_jobs_html = ""
+    if all_jobs:
+        similar_jobs_html = build_similar_jobs_html(job, all_jobs)
+
     page_html = PAGE_TEMPLATE.substitute(
         title=html.escape(title),
         company=html.escape(company),
@@ -366,6 +463,7 @@ def generate_page(job):
         sidebar_rows=sidebar_rows,
         noindex=noindex,
         expired_banner=expired_banner,
+        similar_jobs_html=similar_jobs_html,
     )
 
     return slug, page_html
@@ -382,7 +480,7 @@ def main():
 
     count = 0
     for job in jobs:
-        result = generate_page(job)
+        result = generate_page(job, all_jobs=jobs)
         if not result:
             continue
         slug, page_html = result
