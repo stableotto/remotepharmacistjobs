@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Download all_jobs.json from job-board-aggregator releases and filter to remote pharmacist jobs."""
 
+import gzip
 import hashlib
 import json
 import re
@@ -142,19 +143,27 @@ def main():
     release = resp.json()
 
     asset_url = None
+    compressed = False
     for asset in release.get("assets", []):
         if asset["name"] == "all_jobs.json":
             asset_url = asset["browser_download_url"]
+            break
+        if asset["name"] == "all_jobs.json.gz":
+            asset_url = asset["browser_download_url"]
+            compressed = True
             break
 
     if not asset_url:
         print("ERROR: all_jobs.json not found in latest release assets")
         sys.exit(1)
 
-    print(f"Downloading all_jobs.json from {asset_url}...")
+    print(f"Downloading {('all_jobs.json.gz' if compressed else 'all_jobs.json')} from {asset_url}...")
     resp = requests.get(asset_url, timeout=300)
     resp.raise_for_status()
-    all_jobs = resp.json()
+    if compressed:
+        all_jobs = json.loads(gzip.decompress(resp.content))
+    else:
+        all_jobs = resp.json()
     print(f"Downloaded {len(all_jobs):,} total jobs")
 
     # Filter new jobs from aggregator
