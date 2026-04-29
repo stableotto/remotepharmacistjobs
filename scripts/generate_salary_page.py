@@ -157,9 +157,9 @@ def main():
   <meta property="og:title" content="Remote Pharmacist Salary Guide">
   <meta property="og:description" content="Remote pharmacist salary data from real job listings. Average salary {fmt(overall_avg)}/year.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{SITE_URL}/salary.html">
+  <meta property="og:url" content="{SITE_URL}/salary">
   <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="{SITE_URL}/salary.html">
+  <link rel="canonical" href="{SITE_URL}/salary">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">

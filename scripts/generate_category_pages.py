@@ -361,9 +361,9 @@ INDEX_TEMPLATE = Template("""\
   <meta property="og:title" content="Browse Remote Pharmacist Job Categories">
   <meta property="og:description" content="Browse remote pharmacist jobs by category. Direct employer listings only.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://remotepharmacistjobs.com/categories.html">
+  <meta property="og:url" content="https://remotepharmacistjobs.com/categories">
   <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://remotepharmacistjobs.com/categories.html">
+  <link rel="canonical" href="https://remotepharmacistjobs.com/categories">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -454,7 +454,7 @@ def main():
                 {
                     "@type": "ListItem",
                     "position": i + 1,
-                    "url": f"{SITE_URL}/jobs/{j['slug']}.html" if j.get("slug") else j.get("url", ""),
+                    "url": f"{SITE_URL}/jobs/{j['slug']}" if j.get("slug") else j.get("url", ""),
                     "name": j.get("title", ""),
                 }
                 for i, j in enumerate(cat["jobs"])
@@ -465,7 +465,7 @@ def main():
             title=html.escape(cat["h1"]),
             name=html.escape(cat["name"]),
             meta_description=html.escape(cat["meta_description"]),
-            canonical_url=f"{SITE_URL}/category/{cat['slug']}.html",
+            canonical_url=f"{SITE_URL}/category/{cat['slug']}",
             h1=html.escape(cat["h1"]),
             intro=html.escape(cat["intro"]),
             count=cat["count"],

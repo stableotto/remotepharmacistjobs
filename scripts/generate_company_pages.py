@@ -191,9 +191,9 @@ INDEX_TEMPLATE = Template("""\
   <meta property="og:title" content="Companies Hiring Remote Pharmacists">
   <meta property="og:description" content="Browse companies hiring remote pharmacists. Direct employer listings only.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://remotepharmacistjobs.com/companies/">
+  <meta property="og:url" content="https://remotepharmacistjobs.com/companies">
   <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://remotepharmacistjobs.com/companies/">
+  <link rel="canonical" href="https://remotepharmacistjobs.com/companies">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
@@ -305,7 +305,7 @@ def main():
                 {
                     "@type": "ListItem",
                     "position": i + 1,
-                    "url": f"{SITE_URL}/jobs/{j['slug']}.html" if j.get("slug") else j.get("url", ""),
+                    "url": f"{SITE_URL}/jobs/{j['slug']}" if j.get("slug") else j.get("url", ""),
                     "name": j.get("title", ""),
                 }
                 for i, j in enumerate(comp["jobs"])
@@ -317,7 +317,7 @@ def main():
         page_html = COMPANY_TEMPLATE.substitute(
             company=html.escape(comp["name"]),
             meta_description=html.escape(meta_desc),
-            canonical_url=f"{SITE_URL}/companies/{comp['slug']}.html",
+            canonical_url=f"{SITE_URL}/companies/{comp['slug']}",
             logo_html=logo_html,
             intro=html.escape(intro),
             count=comp["count"],

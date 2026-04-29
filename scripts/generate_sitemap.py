@@ -15,26 +15,28 @@ def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     urls = []
 
-    # Static pages
+    # Static pages (extensionless to match Cloudflare Pages serving)
     urls.append(("", "1.0", "daily", today))
-    urls.append(("about.html", "0.5", "monthly", today))
-    urls.append(("post-a-job.html", "0.5", "monthly", today))
-    urls.append(("categories.html", "0.8", "daily", today))
-    urls.append(("salary.html", "0.7", "daily", today))
+    urls.append(("about", "0.5", "monthly", today))
+    urls.append(("post-a-job", "0.5", "monthly", today))
+    urls.append(("categories", "0.8", "daily", today))
+    urls.append(("salary", "0.7", "daily", today))
 
     # Category pages
     cat_dir = "site/category"
     if os.path.isdir(cat_dir):
         for fname in sorted(os.listdir(cat_dir)):
             if fname.endswith(".html"):
-                urls.append((f"category/{fname}", "0.8", "daily", today))
+                name = fname[:-5]  # strip .html
+                urls.append((f"category/{name}", "0.8", "daily", today))
 
     # Company pages
     company_dir = "site/companies"
     if os.path.isdir(company_dir):
         for fname in sorted(os.listdir(company_dir)):
             if fname.endswith(".html"):
-                urls.append((f"companies/{fname}", "0.7", "daily", today))
+                name = fname[:-5]  # strip .html
+                urls.append((f"companies/{name}", "0.7", "daily", today))
 
     # Job detail pages
     for job in data.get("jobs", []):
@@ -43,7 +45,7 @@ def main():
             date = job.get("scraped_at", job.get("updated_at", today))
             if "T" in date:
                 date = date.split("T")[0]
-            urls.append((f"jobs/{slug}.html", "0.6", "weekly", date))
+            urls.append((f"jobs/{slug}", "0.6", "weekly", date))
 
     # Build XML
     xml_parts = [
