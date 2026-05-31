@@ -233,8 +233,9 @@ def build_job_row_html(job):
     logo_url = job.get("logo_url", "")
 
     salary_parts = []
-    if job.get("salary"):
-        salary_parts.append(f'<span class="meta-salary">{html.escape(job["salary"]["display"])}</span>')
+    salary = job.get("salary")
+    if salary and salary.get("display"):
+        salary_parts.append(f'<span class="meta-salary">{html.escape(salary["display"])}</span>')
 
     meta_parts = [company]
     if salary_parts:

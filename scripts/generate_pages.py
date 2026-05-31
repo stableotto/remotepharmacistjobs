@@ -324,8 +324,9 @@ def build_similar_jobs_html(job, all_jobs, max_count=4):
         logo_url = sj.get("logo_url", "")
 
         salary_display = ""
-        if sj.get("salary"):
-            salary_display = f'<span class="meta-dot"> \u00b7 </span><span class="meta-salary">{html.escape(sj["salary"]["display"])}</span>'
+        sj_salary = sj.get("salary")
+        if sj_salary and sj_salary.get("display"):
+            salary_display = f'<span class="meta-dot"> \u00b7 </span><span class="meta-salary">{html.escape(sj_salary["display"])}</span>'
 
         if logo_url:
             if logo_url.startswith("logos/"):
@@ -377,7 +378,7 @@ def generate_page(job, all_jobs=None):
         description = "<p>No description available. Click the Apply button to view the full job posting.</p>"
 
     meta_desc = f"{title} at {company} - Remote position"
-    if salary:
+    if salary and salary.get("display"):
         meta_desc += f" | {salary['display']}"
     meta_desc += f" | {location}"
 
@@ -387,7 +388,7 @@ def generate_page(job, all_jobs=None):
     meta_parts = []
     if skill_text:
         meta_parts.append(f'<span>{html.escape(skill_text)}</span>')
-    if salary:
+    if salary and salary.get("display"):
         meta_parts.append(f'<span class="detail-meta-salary">{html.escape(salary["display"])}</span>')
     meta_parts.append(f'<span class="detail-meta-location">{html.escape(location)}</span>')
     meta_items = '<span class="meta-dot"> · </span>'.join(meta_parts)
@@ -412,7 +413,7 @@ def generate_page(job, all_jobs=None):
         f'<div class="sidebar-info-row"><span class="sidebar-info-label">Location</span>'
         f'<span class="sidebar-info-value">{html.escape(location)}</span></div>'
     )
-    if salary:
+    if salary and salary.get("display"):
         sidebar_parts.append(
             f'<div class="sidebar-info-row"><span class="sidebar-info-label">Salary</span>'
             f'<span class="sidebar-info-value">{html.escape(salary["display"])}</span></div>'
