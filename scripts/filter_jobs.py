@@ -115,6 +115,42 @@ def is_remote(location: str) -> bool:
     return any(kw in lower for kw in REMOTE_KEYWORDS)
 
 
+def normalize_salary(salary):
+    """Coerce an incoming salary value into our canonical shape, or None.
+
+    The aggregator feed may include a `salary` field in shapes we don't
+    control (e.g. missing `display`, a bare string, or a number). Our
+    templates render `salary["display"]`, so anything without a usable
+    `display` would crash the whole build. Normalize to either a dict with a
+    non-empty `display` string or None so downstream code can trust it.
+    """
+    if not isinstance(salary, dict):
+        return None
+    display = salary.get("display")
+    if isinstance(display, str) and display.strip():
+        return salary
+    # Try to derive a display string from min/max/period.
+    min_val = salary.get("min")
+    max_val = salary.get("max")
+    period = salary.get("period") or "yearly"
+
+    def fmt(v):
+        return f"${v:,.0f}" if v >= 1000 else f"${v:.2f}"
+
+    suffix = {"hourly": "/hr", "monthly": "/mo"}.get(period, "/yr")
+    derived = None
+    if isinstance(min_val, (int, float)) and isinstance(max_val, (int, float)) and min_val != max_val:
+        derived = f"{fmt(min_val)} - {fmt(max_val)}{suffix}"
+    else:
+        val = max_val or min_val
+        if isinstance(val, (int, float)):
+            derived = f"{fmt(val)}{suffix}"
+    if not derived:
+        return None
+    salary["display"] = derived
+    return salary
+
+
 RETENTION_DAYS = 30  # Keep jobs for 30 days after they disappear from aggregator
 
 
@@ -190,6 +226,16 @@ def main():
         slug = re.sub(r'[^a-z0-9]+', '-', f"{job['company']} {title}".lower()).strip('-')
         slug = f"{slug}-{hashlib.md5(url.encode()).hexdigest()[:6]}"
         job["slug"] = slug
+
+        # Normalize any salary the feed shipped into our canonical shape (or
+        # drop it). Templates rely on salary["display"]; an unexpected shape
+        # from the aggregator would otherwise crash the whole build.
+        if "salary" in job:
+            normalized = normalize_salary(job["salary"])
+            if normalized is None:
+                del job["salary"]
+            else:
+                job["salary"] = normalized
 
         # Merge with existing data: preserve first_seen, enrichment (description, salary, logo)
         if url in existing_jobs:
