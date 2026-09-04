@@ -348,7 +348,15 @@ def main():
     with open("site/companies/index.html", "w") as f:
         f.write(index_html)
 
-    print(f"Generated {len(company_data)} company pages + index in site/companies/")
+    keep = {f"{c['slug']}.html" for c in company_data}
+    keep.add("index.html")
+    removed = 0
+    for fname in os.listdir("site/companies"):
+        if fname.endswith(".html") and fname not in keep:
+            os.remove(os.path.join("site/companies", fname))
+            removed += 1
+
+    print(f"Generated {len(company_data)} company pages + index in site/companies/ (removed {removed} stale pages)")
     for c in company_data:
         print(f"  {c['name']}: {c['count']} jobs")
 

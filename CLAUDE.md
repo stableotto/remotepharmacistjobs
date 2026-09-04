@@ -29,10 +29,11 @@ Cloudflare Pages auto-redirects `.html` to extensionless URLs (308 redirect).
 4. `generate_category_pages.py` — category pages → `site/category/*.html` + `site/categories.html`
 5. `generate_company_pages.py` — company pages → `site/companies/*.html`
 6. `generate_salary_page.py` — salary guide → `site/salary.html`
-7. `generate_sitemap.py` — SEO sitemap → `site/sitemap.xml`
+7. `generate_homepage.py` — injects active jobs into `site/index.html` (markers only)
+8. `generate_sitemap.py` — SEO sitemap → `site/sitemap.xml`
 
 ### Template Locations (all pages must stay consistent)
-- `site/index.html` — homepage (hand-written, not generated)
+- `site/index.html` — homepage (hand-written shell; job list injected by `generate_homepage.py`)
 - `site/about.html` — about page (hand-written)
 - `site/post-a-job.html` — job posting info (hand-written)
 - `scripts/generate_pages.py` — `PAGE_TEMPLATE` (job detail pages)

@@ -124,8 +124,11 @@
       })
       .catch(err => {
         console.error('Failed to load jobs:', err);
-        document.getElementById('jobs-list').innerHTML =
-          '<div class="no-results">Failed to load jobs. Please try again later.</div>';
+        const list = document.getElementById('jobs-list');
+        if (!list.querySelector('.job-row')) {
+          list.innerHTML =
+            '<div class="no-results">Failed to load jobs. Please try again later.</div>';
+        }
       });
   }
 

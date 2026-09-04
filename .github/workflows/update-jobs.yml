@@ -21,12 +21,13 @@ jobs:
       - run: python scripts/generate_category_pages.py
       - run: python scripts/generate_company_pages.py
       - run: python scripts/generate_salary_page.py
+      - run: python scripts/generate_homepage.py
       - run: python scripts/generate_sitemap.py
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/jobs.json site/jobs/ site/logos/ site/category/ site/categories.html site/companies/ site/salary.html site/sitemap.xml
+          git add site/index.html site/jobs.json site/jobs/ site/logos/ site/category/ site/categories.html site/companies/ site/salary.html site/sitemap.xml
           git diff --staged --quiet || git commit -m "Update jobs $(date -u +%Y-%m-%d)"
           git push
       - name: Deploy to Cloudflare Pages

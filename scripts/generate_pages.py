@@ -482,17 +482,26 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
 
     count = 0
+    keep = set()
     for job in jobs:
         result = generate_page(job, all_jobs=jobs)
         if not result:
             continue
         slug, page_html = result
-        filepath = os.path.join(output_dir, f"{slug}.html")
+        filename = f"{slug}.html"
+        keep.add(filename)
+        filepath = os.path.join(output_dir, filename)
         with open(filepath, "w") as f:
             f.write(page_html)
         count += 1
 
-    print(f"Generated {count} job detail pages in {output_dir}/")
+    removed = 0
+    for fname in os.listdir(output_dir):
+        if fname.endswith(".html") and fname not in keep:
+            os.remove(os.path.join(output_dir, fname))
+            removed += 1
+
+    print(f"Generated {count} job detail pages in {output_dir}/ (removed {removed} stale pages)")
 
 
 if __name__ == "__main__":

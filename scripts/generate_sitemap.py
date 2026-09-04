@@ -30,16 +30,20 @@ def main():
                 name = fname[:-5]  # strip .html
                 urls.append((f"category/{name}", "0.8", "daily", today))
 
-    # Company pages
+    urls.append(("companies", "0.7", "daily", today))
+
+    # Company pages (skip index.html — covered by /companies)
     company_dir = "site/companies"
     if os.path.isdir(company_dir):
         for fname in sorted(os.listdir(company_dir)):
-            if fname.endswith(".html"):
+            if fname.endswith(".html") and fname != "index.html":
                 name = fname[:-5]  # strip .html
                 urls.append((f"companies/{name}", "0.7", "daily", today))
 
-    # Job detail pages
+    # Active job detail pages only — expired pages are noindex
     for job in data.get("jobs", []):
+        if job.get("expired"):
+            continue
         slug = job.get("slug")
         if slug:
             date = job.get("scraped_at", job.get("updated_at", today))
