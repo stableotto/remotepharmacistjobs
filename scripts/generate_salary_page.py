@@ -2,9 +2,14 @@
 """Generate a salary insights page aggregating salary data from job listings."""
 
 import json
+import sys
+import os
 import html
 import math
 from collections import defaultdict
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import employers as E
 
 SITE_URL = "https://remotepharmacistjobs.com"
 
@@ -13,7 +18,7 @@ def main():
     with open("site/jobs.json") as f:
         data = json.load(f)
 
-    jobs = [j for j in data.get("jobs", []) if not j.get("expired")]
+    jobs = [j for j in E.decorate(data.get("jobs", [])) if not j.get("expired")]
 
     # Collect salary data, normalizing everything to annual
     salary_entries = []

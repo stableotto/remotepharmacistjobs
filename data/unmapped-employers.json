@@ -1,18 +1,7 @@
 {
   "_comment": "Employers seen in the feed with no curated record in data/employers/. They render with a generic template under their ATS token and are NOT given an invented display name. To fix one: add a record to data/employers/<slug>.json listing this ats_token.",
-  "count": 8,
+  "count": 7,
   "employers": [
-    {
-      "ats_token": "name:career-opportunities",
-      "ingested_name": "Career Opportunities",
-      "job_count": 1,
-      "active_job_count": 1,
-      "sample_titles": [
-        "Utilization Management Clinical Pharmacist"
-      ],
-      "sample_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4375134",
-      "ats": "Paylocity"
-    },
     {
       "ats_token": "ashby:felix",
       "ingested_name": "Felix",
@@ -47,18 +36,7 @@
       "ats": "Ashby"
     },
     {
-      "ats_token": "name:brsi",
-      "ingested_name": "Brsi",
-      "job_count": 1,
-      "active_job_count": 0,
-      "sample_titles": [
-        "Pharmacy Authorization Specialist"
-      ],
-      "sample_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4282355",
-      "ats": "Paylocity"
-    },
-    {
-      "ats_token": "name:tarrytown-expocare-llc",
+      "ats_token": "paylocity:4cc04ad9-1ba8-47e7-8a58-5f31ef994ce9",
       "ingested_name": "Tarrytown Expocare Llc",
       "job_count": 1,
       "active_job_count": 0,
@@ -66,6 +44,17 @@
         "Pharmacy Technician - Order Entry"
       ],
       "sample_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4448388",
+      "ats": "Paylocity"
+    },
+    {
+      "ats_token": "paylocity:a7a227f2-16cf-4b33-bd0c-d0668d9c1c61",
+      "ingested_name": "Brsi",
+      "job_count": 1,
+      "active_job_count": 0,
+      "sample_titles": [
+        "Pharmacy Authorization Specialist"
+      ],
+      "sample_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4282355",
       "ats": "Paylocity"
     },
     {

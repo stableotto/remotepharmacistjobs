@@ -3,9 +3,13 @@
 
 import json
 import os
+import sys
 import html
 import re
 from string import Template
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import employers as E
 from datetime import datetime, timedelta
 from urllib.parse import urljoin
 
@@ -507,7 +511,7 @@ def main():
     with open(jobs_path) as f:
         data = json.load(f)
 
-    jobs = data.get("jobs", [])
+    jobs = E.decorate(data.get("jobs", []))
     output_dir = "site/jobs"
     os.makedirs(output_dir, exist_ok=True)
 

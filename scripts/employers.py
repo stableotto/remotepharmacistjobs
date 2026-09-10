@@ -101,9 +101,17 @@ def ats_tokens_for_url(url):
     return tokens
 
 
+_UUID = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", re.I)
+
+
 def job_tokens(job):
     """All tokens a job could be matched on, including the name fallback."""
     tokens = ats_tokens_for_url(job.get("url") or job.get("absolute_url", ""))
+    # Paylocity job URLs carry only a numeric posting id, but the feed keeps
+    # the board's company GUID, which is stable per employer.
+    company_slug = (job.get("company_slug") or "").strip()
+    if _UUID.match(company_slug):
+        tokens.append(f"paylocity:{company_slug.lower()}")
     name_slug = slugify(job.get("company", ""))
     if name_slug:
         tokens.append(f"name:{name_slug}")
@@ -246,3 +254,24 @@ def role_types(jobs, limit=8):
             counts[title] += 1
     ranked = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
     return [title for title, _ in ranked[:limit]]
+
+
+def decorate(jobs, employers=None, index=None):
+    """Set each job's display company name from its curated employer record.
+
+    Mutates the in-memory job dicts only — site/jobs.json is left alone, and
+    job slugs (already stored, and derived from the ingested name) never move.
+    Jobs whose board has no curated record keep the ingested name; their
+    employer page is noindexed, so nothing ranks under a name we invented.
+    """
+    if employers is None:
+        employers = load_employers()
+    if index is None:
+        index = build_token_index(employers)
+    for job in jobs:
+        record = resolve(job, employers, index)
+        if record:
+            job["company"] = record["name"]
+            job["employer_slug"] = record["slug"]
+            job["employer_homepage"] = record.get("homepage") or ""
+    return jobs

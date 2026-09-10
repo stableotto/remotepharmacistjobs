@@ -1,0 +1,33 @@
+{
+  "slug": "trudatarx",
+  "name": "TruDataRx",
+  "aka": [
+    "TruDataRx, Inc."
+  ],
+  "homepage": "https://trudatarx.com",
+  "careers_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4375134",
+  "logo": "",
+  "description": "TruDataRx uses objective clinical data to help clients improve the clinical effectiveness of pharmacy benefits and reduce their cost. The company states that it is independent of the pharmaceutical manufacturing and distribution industries, which is the basis of its claim to advise clients objectively. Its remote pharmacist roles are utilisation management and clinical review.",
+  "employer_type": "um-prior-auth",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "paylocity:cfe0e892-760a-4f34-b732-e6d0be968d4f"
+  ],
+  "sources": [
+    {
+      "url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4375134",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://trudatarx.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

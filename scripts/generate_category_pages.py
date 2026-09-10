@@ -2,10 +2,14 @@
 """Generate programmatic SEO category pages that group jobs by keyword."""
 
 import json
+import sys
 import os
 import html
 import re
 from string import Template
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import employers as E
 
 SITE_URL = "https://remotepharmacistjobs.com"
 
@@ -438,7 +442,7 @@ def main():
     with open("site/jobs.json") as f:
         data = json.load(f)
     # Only show active (non-expired) jobs on category pages
-    jobs = [j for j in data.get("jobs", []) if not j.get("expired")]
+    jobs = [j for j in E.decorate(data.get("jobs", [])) if not j.get("expired")]
 
     os.makedirs("site/category", exist_ok=True)
 

@@ -5,8 +5,13 @@ index.html stays hand-written; this script only replaces marked regions.
 """
 
 import json
+import sys
+import os
 import html
 from datetime import datetime, timezone
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import employers as E
 
 SITE_URL = "https://remotepharmacistjobs.com"
 INDEX_PATH = "site/index.html"
@@ -154,7 +159,7 @@ def main():
     with open("site/jobs.json") as f:
         data = json.load(f)
 
-    jobs = [j for j in data.get("jobs", []) if not j.get("expired")]
+    jobs = [j for j in E.decorate(data.get("jobs", [])) if not j.get("expired")]
     last_updated = data.get("last_updated", "")
     count = data.get("total_jobs") or len(jobs)
 
