@@ -32,13 +32,21 @@ def main():
 
     urls.append(("companies", "0.7", "daily", today))
 
-    # Company pages (skip index.html — covered by /companies)
+    # Employer pages (skip index.html — covered by /companies). Pages marked
+    # noindex are excluded: unverified employers and listings that are not
+    # pharmacist or pharmacy technician roles. Employer pages are reference
+    # content that changes far less often than the job feed, so they are
+    # weekly rather than daily.
     company_dir = "site/companies"
     if os.path.isdir(company_dir):
         for fname in sorted(os.listdir(company_dir)):
-            if fname.endswith(".html") and fname != "index.html":
-                name = fname[:-5]  # strip .html
-                urls.append((f"companies/{name}", "0.7", "daily", today))
+            if not fname.endswith(".html") or fname == "index.html":
+                continue
+            with open(os.path.join(company_dir, fname)) as fh:
+                if "noindex" in fh.read():
+                    continue
+            name = fname[:-5]  # strip .html
+            urls.append((f"companies/{name}", "0.7", "weekly", today))
 
     # Active job detail pages only — expired pages are noindex
     for job in data.get("jobs", []):

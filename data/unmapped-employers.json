@@ -1,0 +1,94 @@
+{
+  "_comment": "Employers seen in the feed with no curated record in data/employers/. They render with a generic template under their ATS token and are NOT given an invented display name. To fix one: add a record to data/employers/<slug>.json listing this ats_token.",
+  "count": 8,
+  "employers": [
+    {
+      "ats_token": "name:career-opportunities",
+      "ingested_name": "Career Opportunities",
+      "job_count": 1,
+      "active_job_count": 1,
+      "sample_titles": [
+        "Utilization Management Clinical Pharmacist"
+      ],
+      "sample_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4375134",
+      "ats": "Paylocity"
+    },
+    {
+      "ats_token": "ashby:felix",
+      "ingested_name": "Felix",
+      "job_count": 1,
+      "active_job_count": 0,
+      "sample_titles": [
+        "Staff Pharmacist - Full-Time (Remote, ON & SK)"
+      ],
+      "sample_url": "https://jobs.ashbyhq.com/felix/e8c16132-ef70-4a8c-be07-c2d9f035e241",
+      "ats": "Ashby"
+    },
+    {
+      "ats_token": "ashby:montu-uk",
+      "ingested_name": "Montu Uk",
+      "job_count": 1,
+      "active_job_count": 0,
+      "sample_titles": [
+        "Remote Pharmacist "
+      ],
+      "sample_url": "https://jobs.ashbyhq.com/montu-uk/e57599e2-1b5c-4605-9877-d8d180ea96a7",
+      "ats": "Ashby"
+    },
+    {
+      "ats_token": "ashby:openloophealth",
+      "ingested_name": "Openloophealth",
+      "job_count": 1,
+      "active_job_count": 0,
+      "sample_titles": [
+        "Director, Pharmacy Supply Chain"
+      ],
+      "sample_url": "https://jobs.ashbyhq.com/openloophealth/9052e92c-3114-424d-9d74-97f8e547cb68",
+      "ats": "Ashby"
+    },
+    {
+      "ats_token": "name:brsi",
+      "ingested_name": "Brsi",
+      "job_count": 1,
+      "active_job_count": 0,
+      "sample_titles": [
+        "Pharmacy Authorization Specialist"
+      ],
+      "sample_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4282355",
+      "ats": "Paylocity"
+    },
+    {
+      "ats_token": "name:tarrytown-expocare-llc",
+      "ingested_name": "Tarrytown Expocare Llc",
+      "job_count": 1,
+      "active_job_count": 0,
+      "sample_titles": [
+        "Pharmacy Technician - Order Entry"
+      ],
+      "sample_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4448388",
+      "ats": "Paylocity"
+    },
+    {
+      "ats_token": "workday:aoncology",
+      "ingested_name": "Aoncology",
+      "job_count": 1,
+      "active_job_count": 0,
+      "sample_titles": [
+        "Pharmacy Intake Technician"
+      ],
+      "sample_url": "https://aoncology.wd12.myworkdayjobs.com/aoncology_careers/job/US--Work-From-Home/Pharmacy-Intake-Technician_JR7211",
+      "ats": "Workday"
+    },
+    {
+      "ats_token": "workday:ccc",
+      "ingested_name": "Ccc",
+      "job_count": 1,
+      "active_job_count": 0,
+      "sample_titles": [
+        "Sales Representative - Independent Pharmacy"
+      ],
+      "sample_url": "https://ccc.wd5.myworkdayjobs.com/ccc_external/job/Northeast-Remote/Sales-Representative---Independent-Pharmacy_R20901",
+      "ats": "Workday"
+    }
+  ]
+}
