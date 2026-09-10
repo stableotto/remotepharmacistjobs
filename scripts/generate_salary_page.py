@@ -10,6 +10,7 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import employers as E
+import partials as P
 
 SITE_URL = "https://remotepharmacistjobs.com"
 
@@ -152,6 +153,47 @@ def main():
         <div class="salary-job-pay">{html.escape(job["display"])}</div>
       </div>'''
 
+    features = P.load_features()
+    contributions = E.load_contributions()
+    employer_store = E.load_employers()
+
+    # Contributed pay is rendered in its own section, never merged into the
+    # listing-derived tables above: one is what employers advertise, the other
+    # is what people say they are paid. Buckets below the publication threshold
+    # never reach this file.
+    contributed_html = ""
+    if contributions and contributions.get("by_role"):
+        rows = "".join(
+            f"<tr><td>{html.escape(role.replace('-', ' ').capitalize())}</td>"
+            f"<td>${b['median']:,.0f}</td>"
+            f"<td>${b['min']:,.0f} &ndash; ${b['max']:,.0f}</td>"
+            f"<td>{b['n']}</td></tr>"
+            for role, b in sorted(contributions["by_role"].items(),
+                                  key=lambda kv: -kv[1]["n"])
+        )
+        contributed_html = f'''
+    <div class="content-section">
+      <h2>Pay reported by pharmacists</h2>
+      <p>Self-reported by people doing these jobs, moderated before publication.
+      This is a different measurement from the listing figures above and the two
+      should not be compared directly &mdash; listings show advertised ranges,
+      these show total compensation including bonus.</p>
+      <div class="salary-table-wrap">
+        <table class="salary-table">
+          <thead><tr><th>Role</th><th>Median</th><th>Range</th><th>Reports</th></tr></thead>
+          <tbody>{rows}</tbody>
+        </table>
+      </div>
+      <p style="font-size:0.85rem;color:#9ca3af;margin-top:12px">Only buckets with at
+      least {contributions.get("min_bucket", 5)} reports are shown. Total compensation,
+      annualised.</p>
+    </div>'''
+
+    contribution_form = P.contribution_form(employer_store, features)
+    email_capture = P.email_capture("", "salary", features)
+    turnstile = P.turnstile_script(features)
+    email_capture_js = P.email_capture_js(features)
+
     page_html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,7 +212,7 @@ def main():
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-</head>
+{turnstile}</head>
 <body>
   <nav class="site-nav">
     <div class="site-nav-inner">
@@ -217,7 +259,7 @@ def main():
       </div>
     </div>
 
-    <div class="content-section">
+{contributed_html}{contribution_form}{email_capture}    <div class="content-section">
       <h2>About This Data</h2>
       <p>Salary figures are based on compensation data from active remote pharmacy job listings on our site. We include only positions that disclose salary information. Data is refreshed daily as jobs are added and removed.</p>
       <p>Salaries shown represent the full range posted by employers. Actual compensation may vary based on experience, location, and other factors.</p>
@@ -247,7 +289,7 @@ def main():
       </div>
     </div>
   </footer>
-</body>
+{email_capture_js}</body>
 </html>'''
 
     with open("site/salary.html", "w") as f:

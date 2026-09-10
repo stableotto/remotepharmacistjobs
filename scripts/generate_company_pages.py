@@ -24,6 +24,7 @@ from string import Template
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import employers as E
+import partials as P
 
 SITE_URL = "https://remotepharmacistjobs.com"
 REDIRECTS_PATH = "site/_redirects"
@@ -174,7 +175,7 @@ COMPANY_TEMPLATE = Template("""\
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
-  <script type="application/ld+json">
+${turnstile}  <script type="application/ld+json">
 ${json_ld}
   </script>
 </head>
@@ -205,7 +206,7 @@ ${sidebar}
       </aside>
     </div>
 
-    <div class="browse-categories">
+${email_capture}    <div class="browse-categories">
       <h2>${related_heading}</h2>
       <div class="category-links">
 ${related}
@@ -214,7 +215,7 @@ ${related}
   </div>
 
 ${footer}
-</body>
+${email_capture_js}</body>
 </html>
 """)
 
@@ -577,6 +578,7 @@ def main():
     store = E.load_employers()
     index = E.build_token_index(store)
     contributions = E.load_contributions()
+    features = P.load_features()
     resolved, unresolved = E.group_jobs(all_jobs, store, index)
     unmapped_rows = E.write_unmapped(unresolved)
 
@@ -706,6 +708,9 @@ def main():
             sidebar=build_sidebar(record, jobs, salary, generic, contributions),
             related_heading=esc(related_heading),
             related=related,
+            email_capture=P.email_capture("../", "employer", features),
+            email_capture_js=P.email_capture_js(features),
+            turnstile=P.turnstile_script(features),
         )
         with open(f"site/companies/{slug}.html", "w") as f:
             f.write(page)

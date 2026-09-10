@@ -2,9 +2,11 @@
 
 **Status: proposed, not provisioned. Nothing in this document is live.**
 
-The code is written and inert. Both Pages Functions return `503` unless a D1
-binding and two secrets exist, and no form is rendered on the site, so merging
-this changes nothing a visitor can see. Provisioning needs your approval — it is
+The code and the UI are both written and inert, behind flags in
+`data/features.json`. With the flags off the generators emit byte-identical
+pages — no form, no heading, no placeholder, and the Turnstile script is not
+even loaded. Both Pages Functions additionally return `503` without a D1
+binding, so there are two independent locks. Provisioning needs your approval — it is
 the only phase that adds infrastructure and the only one that stores anything a
 person typed.
 
@@ -28,6 +30,17 @@ wrangler d1 execute remotepharmacistjobs \
 Then in the Pages project: bind the database as `DB`, and set
 `TURNSTILE_SECRET_KEY` and `IP_HASH_SALT` (a long random string) as secrets.
 There is no `wrangler.toml` in this repo — bindings live in the dashboard.
+
+Finally, turn the surfaces on in `data/features.json` and re-run the generators:
+
+```json
+{ "salary_contributions": true, "email_capture": true,
+  "turnstile_site_key": "<your Turnstile site key>" }
+```
+
+Flip them independently — email capture does not depend on the salary work.
+Do not enable either before the D1 binding exists, or visitors get a form whose
+endpoint answers 503.
 
 ## Schema
 
@@ -82,6 +95,20 @@ cannot forget them:
 
 Hourly is annualised at 2080 hours before aggregation, and units are never mixed.
 
+## What is built
+
+- The submission form on `/salary`, with employer autocomplete against the
+  curated store, closed-vocabulary datalists, and Turnstile.
+- Email capture on employer pages, `/salary` and `/licensure/` — one component,
+  never on a job page and never gating content.
+- The contributed-pay section on `/salary` (by role) and on employer pages (by
+  employer and role), rendered separately from listing-derived figures.
+
+Form controls reuse `.search-wrapper` inputs with `<datalist>` rather than
+`<select>`, because the design system has no styled select and adding one would
+need your sign-off. The Function validates against closed vocabularies
+regardless, so the datalist is a convenience, never the control.
+
 ## What is still missing
 
 - The email confirmation send. `subscribe.js` writes a `confirm_token` but
@@ -92,8 +119,5 @@ Hourly is annualised at 2080 hours before aggregation, and units are never mixed
 - The 30-day `ip_hash` retention job.
 - The `employers` mirror table in D1 that `salary-contributions.js` validates
   against, populated from `data/employers/` at build time.
-- The submission form and email capture UI. Deliberately not built yet: the
-  form should not exist before the endpoint behind it does.
-
 Per the site's promise on `/about`, email capture must never gate content and
 must never appear on a job page.

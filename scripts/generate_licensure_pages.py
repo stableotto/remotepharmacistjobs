@@ -20,6 +20,7 @@ from string import Template
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import employers as E
+import partials as P
 
 SITE_URL = "https://remotepharmacistjobs.com"
 DATA_DIR = "data/licensure"
@@ -95,7 +96,7 @@ PAGE = Template("""\
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
-  <script type="application/ld+json">
+${turnstile}  <script type="application/ld+json">
 ${json_ld}
   </script>
 </head>
@@ -114,13 +115,13 @@ ${nav}
 
 ${body}
 
-    <div class="content-section">
+${email_capture}    <div class="content-section">
       <p style="font-size:0.85rem;color:#9ca3af">${disclaimer}${verified}</p>
     </div>
   </div>
 
 ${footer}
-</body>
+${email_capture_js}</body>
 </html>
 """)
 
@@ -352,6 +353,7 @@ def main():
         print(f"No {DATA_DIR}; skipping licensure pages")
         return
     states = load_states()
+    features = P.load_features()
     os.makedirs(OUT_DIR, exist_ok=True)
 
     store = E.load_employers()
@@ -393,6 +395,9 @@ def main():
                   "This is how transfer actually works, what it costs, and what each board "
                   "requires."),
             body=body, disclaimer=DISCLAIMER,
+            turnstile=P.turnstile_script(features),
+            email_capture=P.email_capture("../", "licensure", features),
+            email_capture_js=P.email_capture_js(features),
             verified=f" Last verified {max(s['last_verified'] for s in states)}."))
 
     for state in states:
@@ -429,6 +434,11 @@ def main():
                       f"confirm it."),
                 body=build_state(state, multi_state if sourced else []),
                 disclaimer=DISCLAIMER,
+                # State pages carry no form, so they must not pull in the
+                # Turnstile script either.
+                turnstile="",
+                email_capture="",
+                email_capture_js="",
                 verified=f" Last verified {state['last_verified']}."))
 
     print(f"Generated licensure guide + {len(states)} state pages in {OUT_DIR}/")

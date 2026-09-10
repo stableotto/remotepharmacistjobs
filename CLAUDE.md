@@ -73,8 +73,9 @@ regenerate should produce a diff containing *only* those. Anything else is your 
   committed to git.
 - **Deploy** — Cloudflare Pages, from the daily workflow (6 AM UTC) or `workflow_dispatch`.
 
-Dynamic behaviour runs in **Pages Functions** under `site/functions/`. Today that is exactly one file,
-`_middleware.js`, which 301s `www.` to the apex. **There is no D1 or KV binding.** There is no server.
+Dynamic behaviour runs in **Pages Functions** under `site/functions/`. `_middleware.js` 301s
+`www.` to the apex. `api/salary-contributions.js` and `api/subscribe.js` are written but
+**there is still no D1 or KV binding**, so both answer 503 and their UI is flag-gated off. There is no server.
 Anything that needs to persist user input needs D1 or KV, and needs to be justified before adding.
 
 ## Hard rules
@@ -241,6 +242,17 @@ not, so the page renders noindex and is kept out of the sitemap and the comparis
 Transfer requirements are quoted verbatim from NABP rather than paraphrased. Unsourced fees,
 processing times and CE values are `null` and render as an em dash with a note that this means
 unsourced, not zero.
+
+### Feature flags
+
+`data/features.json` gates surfaces whose infrastructure does not exist yet
+(`salary_contributions`, `email_capture`, `turnstile_site_key`). With a flag off the
+generators emit byte-identical pages — no form, no heading, no placeholder, and no
+Turnstile script. Do not enable either flag before the D1 binding and secrets exist:
+the Pages Functions answer 503 without them. See `docs/phase-3-proposal.md`.
+
+Shared UI fragments live in `scripts/partials.py`. Email capture must never appear on a
+job page and must never gate content.
 
 ## Licensure content — treat as high risk
 

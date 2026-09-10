@@ -1,0 +1,6 @@
+{
+  "_comment": "Feature flags for surfaces that depend on infrastructure that is not provisioned yet. Both stay false until the D1 database and Turnstile secrets exist — see docs/phase-3-proposal.md. With a flag false the generators render nothing at all: no form, no heading, no placeholder.",
+  "salary_contributions": false,
+  "email_capture": false,
+  "turnstile_site_key": ""
+}
