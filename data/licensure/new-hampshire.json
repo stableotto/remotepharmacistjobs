@@ -2,21 +2,27 @@
   "slug": "new-hampshire",
   "name": "New Hampshire",
   "abbr": "NH",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "New Hampshire Board of Pharmacy",
+  "board_url": "https://www.oplc.nh.gov/board-pharmacy",
   "transfer_requirement": null,
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": null,
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://www.oplc.nh.gov/board-pharmacy",
+      "what": "New Hampshire Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "corroborated"
 }

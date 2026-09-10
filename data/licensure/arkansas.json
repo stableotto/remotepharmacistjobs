@@ -2,7 +2,7 @@
   "slug": "arkansas",
   "name": "Arkansas",
   "abbr": "AR",
-  "board_name": "Arkansas Board of Pharmacy",
+  "board_name": "Arkansas State Board of Pharmacy",
   "board_url": "https://www.pharmacyboard.arkansas.gov/",
   "transfer_requirement": "Must be licensed for at least 6 months. Pass Non-MPJE Law Examination.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
@@ -14,7 +14,7 @@
   "sources": [
     {
       "url": "https://www.pharmacyboard.arkansas.gov/",
-      "what": "Arkansas Board of Pharmacy (primary source)",
+      "what": "Arkansas State Board of Pharmacy (primary source)",
       "accessed": "2026-09-10"
     },
     {
@@ -23,5 +23,6 @@
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

@@ -2,8 +2,8 @@
   "slug": "colorado",
   "name": "Colorado",
   "abbr": "CO",
-  "board_name": "Colorado Board of Pharmacy",
-  "board_url": "https://www.colorado.gov/pacific/dora/Pharmacy",
+  "board_name": "Colorado State Board of Pharmacy",
+  "board_url": "https://dpo.colorado.gov/Pharmacy",
   "transfer_requirement": "Must be licensed for at least one year. Pass the MPJE prior to submitting a license transfer application.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE",
@@ -13,8 +13,8 @@
   "status": "sourced",
   "sources": [
     {
-      "url": "https://www.colorado.gov/pacific/dora/Pharmacy",
-      "what": "Colorado Board of Pharmacy (primary source)",
+      "url": "https://dpo.colorado.gov/Pharmacy",
+      "what": "Colorado State Board of Pharmacy (primary source)",
       "accessed": "2026-09-10"
     },
     {
@@ -23,5 +23,6 @@
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

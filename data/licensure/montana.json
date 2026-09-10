@@ -2,21 +2,27 @@
   "slug": "montana",
   "name": "Montana",
   "abbr": "MT",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "Montana Board of Pharmacy",
+  "board_url": "https://boards.bsd.dli.mt.gov/pharmacy/",
   "transfer_requirement": "Must have a passing UMPJE or MPJE score in any jurisdiction.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE or UMPJE",
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://boards.bsd.dli.mt.gov/pharmacy/",
+      "what": "Montana Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

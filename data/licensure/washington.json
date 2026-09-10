@@ -2,21 +2,27 @@
   "slug": "washington",
   "name": "Washington",
   "abbr": "WA",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "Washington Pharmacy Quality Assurance Commission",
+  "board_url": "https://doh.wa.gov/licenses-permits-and-certificates/professions-new-renew-or-update/pharmacy-professions/licensing-information",
   "transfer_requirement": "Pass the MPJE or UMPJE prior to submitting a license transfer application.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE or UMPJE",
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://doh.wa.gov/licenses-permits-and-certificates/professions-new-renew-or-update/pharmacy-professions/licensing-information",
+      "what": "Washington Pharmacy Quality Assurance Commission (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

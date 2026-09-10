@@ -2,21 +2,27 @@
   "slug": "new-jersey",
   "name": "New Jersey",
   "abbr": "NJ",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "New Jersey State Board of Pharmacy",
+  "board_url": "https://www.njconsumeraffairs.gov/phar",
   "transfer_requirement": "Must have 1,500 active practice hours within two years prior to licensure transfer. Pass the MPJE.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE",
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://www.njconsumeraffairs.gov/phar",
+      "what": "New Jersey State Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "corroborated"
 }

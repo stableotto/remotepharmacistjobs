@@ -2,21 +2,27 @@
   "slug": "illinois",
   "name": "Illinois",
   "abbr": "IL",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "Illinois Board of Pharmacy",
+  "board_url": "https://idfpr.illinois.gov/profs/pharm.html",
   "transfer_requirement": "Pass the MPJE.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE",
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://idfpr.illinois.gov/profs/pharm.html",
+      "what": "Illinois Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

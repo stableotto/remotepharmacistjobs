@@ -3,7 +3,7 @@
   "name": "District of Columbia",
   "abbr": "DC",
   "board_name": "District of Columbia Board of Pharmacy",
-  "board_url": "https://dchealth.dc.gov/bop",
+  "board_url": "https://dchealth.dc.gov/service/board-pharmacy",
   "transfer_requirement": "Pass the MPJE prior to submitting a license transfer application. Pass DC exam.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE",
@@ -13,7 +13,7 @@
   "status": "sourced",
   "sources": [
     {
-      "url": "https://dchealth.dc.gov/bop",
+      "url": "https://dchealth.dc.gov/service/board-pharmacy",
       "what": "District of Columbia Board of Pharmacy (primary source)",
       "accessed": "2026-09-10"
     },
@@ -23,5 +23,6 @@
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

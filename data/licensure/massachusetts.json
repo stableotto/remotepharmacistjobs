@@ -2,21 +2,27 @@
   "slug": "massachusetts",
   "name": "Massachusetts",
   "abbr": "MA",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "Massachusetts Board of Registration in Pharmacy",
+  "board_url": "https://www.mass.gov/orgs/board-of-registration-in-pharmacy",
   "transfer_requirement": "Pass the MPJE.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE",
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://www.mass.gov/orgs/board-of-registration-in-pharmacy",
+      "what": "Massachusetts Board of Registration in Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

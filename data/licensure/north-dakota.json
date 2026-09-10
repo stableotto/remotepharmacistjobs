@@ -2,21 +2,27 @@
   "slug": "north-dakota",
   "name": "North Dakota",
   "abbr": "ND",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "North Dakota State Board of Pharmacy",
+  "board_url": "https://www.nodakpharmacy.com/",
   "transfer_requirement": "Pass the MPJE.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE",
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://www.nodakpharmacy.com/",
+      "what": "North Dakota State Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

@@ -2,21 +2,27 @@
   "slug": "rhode-island",
   "name": "Rhode Island",
   "abbr": "RI",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "Rhode Island Board of Pharmacy",
+  "board_url": "https://health.ri.gov/licensing/pharmacy",
   "transfer_requirement": "Pass the UMPJE prior to submitting a license transfer application.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "UMPJE",
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://health.ri.gov/licensing/pharmacy",
+      "what": "Rhode Island Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

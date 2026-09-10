@@ -2,21 +2,27 @@
   "slug": "south-dakota",
   "name": "South Dakota",
   "abbr": "SD",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "South Dakota Board of Pharmacy",
+  "board_url": "https://doh.sd.gov/boards/pharmacy/",
   "transfer_requirement": "Must be licensed for one year. Pass the MPJE.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE",
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://doh.sd.gov/boards/pharmacy/",
+      "what": "South Dakota Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

@@ -2,21 +2,27 @@
   "slug": "oregon",
   "name": "Oregon",
   "abbr": "OR",
-  "board_name": null,
-  "board_url": null,
+  "board_name": "Oregon Board of Pharmacy",
+  "board_url": "https://www.oregon.gov/pharmacy/Pages/index.aspx",
   "transfer_requirement": "Must be licensed for one year. The Board may grant permission to applicants licensed less than one year if they are working in an approved residency program. Pass the MPJE prior to submitting a license transfer application.",
   "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
   "law_exam": "MPJE",
   "application_fee": null,
   "processing_time": null,
   "ce_requirements": null,
-  "status": "stub",
+  "status": "sourced",
   "sources": [
+    {
+      "url": "https://www.oregon.gov/pharmacy/Pages/index.aspx",
+      "what": "Oregon Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
     {
       "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
       "what": "NABP, General Requirements for Licensure Transfer",
       "accessed": "2026-09-10"
     }
   ],
-  "last_verified": "2026-09-10"
+  "last_verified": "2026-09-10",
+  "board_url_verification": "live"
 }

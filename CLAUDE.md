@@ -236,9 +236,15 @@ a defect.
 
 ### Licensure data
 
-`data/licensure/<state>.json`, one per US jurisdiction (50 + DC). `status: "sourced"` means
-the board of pharmacy link is verified and the page is published; `status: "stub"` means it is
-not, so the page renders noindex and is kept out of the sitemap and the comparison table.
+`data/licensure/<state>.json`, one per US jurisdiction (50 + DC). All 51 are published.
+`status: "sourced"` means the board link is verified and the page ships; `status: "stub"` means
+it is not, so the page renders noindex and stays out of the sitemap and the comparison table.
+
+`board_url_verification` records how each link was checked: `live` (fetched, 200, confirmed to be
+that board's site) or `corroborated` (host refuses automated requests, so the URL was confirmed by
+agreement between two independent official directories — NABP, the FDA BeSafeRx state list, and
+the Maryland Department of Health board directory). Do not add a board link on a single source,
+and do not trust a directory blindly: the Maryland list gives Wyoming West Virginia's URL.
 Transfer requirements are quoted verbatim from NABP rather than paraphrased. Unsourced fees,
 processing times and CE values are `null` and render as an em dash with a note that this means
 unsourced, not zero.

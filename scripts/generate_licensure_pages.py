@@ -162,6 +162,21 @@ def build_overview(states, employers_by_state):
         )
 
     stub_links = " · ".join(esc(s["name"]) for s in stubs)
+    live = len([s for s in published if s.get("board_url_verification") == "live"])
+    if stubs:
+        coverage = (f"{len(published)} of {len(states)} jurisdictions published. The "
+                    f"remaining {len(stubs)} are drafted but not yet verified against "
+                    f"their board, so we are not publishing them: {stub_links}.")
+    else:
+        coverage = (
+            f"All {len(states)} US jurisdictions are covered. Every board link was "
+            f"checked: {live} were fetched directly and confirmed to be that board's "
+            f"own site; the other {len(published) - live} are hosted on servers that "
+            f"refuse automated requests, so those were confirmed instead by agreement "
+            f"between two independent official directories (NABP, the FDA BeSafeRx "
+            f"state list, and the Maryland Department of Health board directory). "
+            f"Board links move without notice &mdash; if one is wrong, that is a bug "
+            f"worth reporting.")
 
     body = f"""    <div class="content-section">
       <h2>Reciprocity, score transfer and what the difference costs you</h2>
@@ -233,10 +248,7 @@ def build_overview(states, employers_by_state):
           </tbody>
         </table>
       </div>
-      <p style="font-size:0.85rem;color:#9ca3af;margin-top:12px">
-      {len(published)} of {len(states)} jurisdictions published. The remaining
-      {len(stubs)} are drafted but not yet verified against their board, so we are not
-      publishing them: {stub_links}.</p>
+      <p style="font-size:0.85rem;color:#9ca3af;margin-top:12px">{coverage}</p>
     </div>"""
     return body, published, stubs
 
