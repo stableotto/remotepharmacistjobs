@@ -1,0 +1,27 @@
+{
+  "slug": "arizona",
+  "name": "Arizona",
+  "abbr": "AZ",
+  "board_name": "Arizona Board of Pharmacy",
+  "board_url": "https://pharmacy.az.gov/",
+  "transfer_requirement": "Pass the UMPJE prior to submitting a license transfer application.",
+  "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+  "law_exam": "UMPJE",
+  "application_fee": null,
+  "processing_time": null,
+  "ce_requirements": null,
+  "status": "sourced",
+  "sources": [
+    {
+      "url": "https://pharmacy.az.gov/",
+      "what": "Arizona Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+      "what": "NABP, General Requirements for Licensure Transfer",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

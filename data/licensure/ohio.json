@@ -1,0 +1,27 @@
+{
+  "slug": "ohio",
+  "name": "Ohio",
+  "abbr": "OH",
+  "board_name": "Ohio Board of Pharmacy",
+  "board_url": "https://www.pharmacy.ohio.gov/",
+  "transfer_requirement": "Standards at the discretion of the Board.",
+  "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+  "law_exam": null,
+  "application_fee": null,
+  "processing_time": null,
+  "ce_requirements": null,
+  "status": "sourced",
+  "sources": [
+    {
+      "url": "https://www.pharmacy.ohio.gov/",
+      "what": "Ohio Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+      "what": "NABP, General Requirements for Licensure Transfer",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

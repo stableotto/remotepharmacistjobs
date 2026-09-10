@@ -48,6 +48,19 @@ def main():
             name = fname[:-5]  # strip .html
             urls.append((f"companies/{name}", "0.7", "weekly", today))
 
+    # Licensure navigator. State pages that are still stubs are noindex and
+    # excluded here — an unverified licensure page must not rank.
+    lic_dir = "site/licensure"
+    if os.path.isdir(lic_dir):
+        urls.append(("licensure/", "0.8", "monthly", today))
+        for fname in sorted(os.listdir(lic_dir)):
+            if not fname.endswith(".html") or fname == "index.html":
+                continue
+            with open(os.path.join(lic_dir, fname)) as fh:
+                if "noindex" in fh.read():
+                    continue
+            urls.append((f"licensure/{fname[:-5]}", "0.6", "monthly", today))
+
     # Active job detail pages only — expired pages are noindex
     for job in data.get("jobs", []):
         if job.get("expired"):

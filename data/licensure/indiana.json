@@ -1,0 +1,22 @@
+{
+  "slug": "indiana",
+  "name": "Indiana",
+  "abbr": "IN",
+  "board_name": null,
+  "board_url": null,
+  "transfer_requirement": null,
+  "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+  "law_exam": null,
+  "application_fee": null,
+  "processing_time": null,
+  "ce_requirements": null,
+  "status": "stub",
+  "sources": [
+    {
+      "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+      "what": "NABP, General Requirements for Licensure Transfer",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

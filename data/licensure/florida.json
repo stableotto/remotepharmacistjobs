@@ -1,0 +1,27 @@
+{
+  "slug": "florida",
+  "name": "Florida",
+  "abbr": "FL",
+  "board_name": "Florida Board of Pharmacy",
+  "board_url": "https://floridaspharmacy.gov/",
+  "transfer_requirement": null,
+  "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+  "law_exam": null,
+  "application_fee": null,
+  "processing_time": null,
+  "ce_requirements": null,
+  "status": "sourced",
+  "sources": [
+    {
+      "url": "https://floridaspharmacy.gov/",
+      "what": "Florida Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+      "what": "NABP, General Requirements for Licensure Transfer",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

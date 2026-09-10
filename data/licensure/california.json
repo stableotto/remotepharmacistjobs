@@ -1,0 +1,27 @@
+{
+  "slug": "california",
+  "name": "California",
+  "abbr": "CA",
+  "board_name": "California Board of Pharmacy",
+  "board_url": "https://www.pharmacy.ca.gov",
+  "transfer_requirement": "Must have passed the NAPLEX after January 1, 2004. Pass Non-MPJE Law Examination.",
+  "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+  "law_exam": "State-specific law examination (not the MPJE)",
+  "application_fee": null,
+  "processing_time": null,
+  "ce_requirements": null,
+  "status": "sourced",
+  "sources": [
+    {
+      "url": "https://www.pharmacy.ca.gov",
+      "what": "California Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+      "what": "NABP, General Requirements for Licensure Transfer",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

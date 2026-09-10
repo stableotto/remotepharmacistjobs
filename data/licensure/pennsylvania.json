@@ -1,0 +1,22 @@
+{
+  "slug": "pennsylvania",
+  "name": "Pennsylvania",
+  "abbr": "PA",
+  "board_name": null,
+  "board_url": null,
+  "transfer_requirement": "Pass the MPJE, unless licensed prior to January 26, 1983, or have taken the Federal Drug Law Examination for the license being used as the basis for transfer.",
+  "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+  "law_exam": "MPJE",
+  "application_fee": null,
+  "processing_time": null,
+  "ce_requirements": null,
+  "status": "stub",
+  "sources": [
+    {
+      "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+      "what": "NABP, General Requirements for Licensure Transfer",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "delaware",
+  "name": "Delaware",
+  "abbr": "DE",
+  "board_name": "Delaware Board of Pharmacy",
+  "board_url": "https://dpr.delaware.gov/boards/pharmacy/",
+  "transfer_requirement": "Pass the MPJE.",
+  "transfer_requirement_source": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+  "law_exam": "MPJE",
+  "application_fee": null,
+  "processing_time": null,
+  "ce_requirements": null,
+  "status": "sourced",
+  "sources": [
+    {
+      "url": "https://dpr.delaware.gov/boards/pharmacy/",
+      "what": "Delaware Board of Pharmacy (primary source)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://nabp.pharmacy/wp-content/uploads/Licensure-Transfer-General-Requirements.pdf",
+      "what": "NABP, General Requirements for Licensure Transfer",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}
