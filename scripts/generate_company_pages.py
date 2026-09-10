@@ -323,7 +323,7 @@ ${footer}
 """)
 
 
-def build_sidebar(record, jobs, salary, generic):
+def build_sidebar(record, jobs, salary, generic, contributions=None):
     """Facts panel. Curated facts carry their source and last_verified date."""
     rows = []
     if not generic:
@@ -370,6 +370,27 @@ def build_sidebar(record, jobs, salary, generic):
             '          <p style="font-size:0.8rem;color:#9ca3af;margin-top:12px">'
             'Annualised from pay ranges published in this employer&rsquo;s own listings. '
             'A small sample is not a salary benchmark.</p>\n'
+            '        </div>'
+        )
+
+    buckets = (contributions or {}).get("by_employer", {}).get(record["slug"]) or []
+    for contributed in buckets:
+        n = contributed["n"]
+        role_label = contributed.get("role_type", "").replace("-", " ").capitalize()
+        cards.append(
+            '        <div class="sidebar-card">\n'
+            f'          <div class="sidebar-card-title">Reported pay: {esc(role_label)}</div>\n'
+            f'          <div class="sidebar-info-row"><span class="sidebar-info-label">Median</span>'
+            f'<span class="sidebar-info-value">{money(contributed["median"])}</span></div>\n'
+            f'          <div class="sidebar-info-row"><span class="sidebar-info-label">Range</span>'
+            f'<span class="sidebar-info-value">{money(contributed["min"])} &ndash; '
+            f'{money(contributed["max"])}</span></div>\n'
+            f'          <div class="sidebar-info-row"><span class="sidebar-info-label">Reports</span>'
+            f'<span class="sidebar-info-value">{n}</span></div>\n'
+            '          <p style="font-size:0.8rem;color:#9ca3af;margin-top:12px">'
+            f'Self-reported by {esc(role_label.lower())}s at this employer, moderated '
+            'before publication, and shown separately from the listing figures above '
+            'because the two are not comparable. Total compensation, annualised.</p>\n'
             '        </div>'
         )
 
@@ -555,6 +576,7 @@ def main():
 
     store = E.load_employers()
     index = E.build_token_index(store)
+    contributions = E.load_contributions()
     resolved, unresolved = E.group_jobs(all_jobs, store, index)
     unmapped_rows = E.write_unmapped(unresolved)
 
@@ -681,7 +703,7 @@ def main():
             logo_html=build_logo_html(name, record.get("logo", ""), "large"),
             pills="".join(pills),
             body=build_body(record, jobs, generic),
-            sidebar=build_sidebar(record, jobs, salary, generic),
+            sidebar=build_sidebar(record, jobs, salary, generic, contributions),
             related_heading=esc(related_heading),
             related=related,
         )

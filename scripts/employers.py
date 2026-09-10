@@ -275,3 +275,23 @@ def decorate(jobs, employers=None, index=None):
             job["employer_slug"] = record["slug"]
             job["employer_homepage"] = record.get("homepage") or ""
     return jobs
+
+
+CONTRIBUTIONS_PATH = "data/salary-contributions.json"
+
+
+def load_contributions(path=CONTRIBUTIONS_PATH):
+    """Moderated, user-contributed pay aggregates, or None if we have none.
+
+    Deliberately returns None rather than an empty structure when the file is
+    absent, so callers render nothing at all instead of an empty "contributed
+    pay" heading. Buckets below the publication threshold are already stripped
+    by scripts/export_contributions.py and never reach here.
+    """
+    if not os.path.exists(path):
+        return None
+    with open(path) as f:
+        data = json.load(f)
+    if not data.get("by_employer") and not data.get("by_role"):
+        return None
+    return data
