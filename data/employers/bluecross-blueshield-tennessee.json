@@ -1,0 +1,34 @@
+{
+  "slug": "bluecross-blueshield-tennessee",
+  "name": "BlueCross BlueShield of Tennessee",
+  "aka": [
+    "BCBST"
+  ],
+  "homepage": "https://www.bcbst.com",
+  "careers_url": "https://bcbst.wd1.myworkdayjobs.com/external",
+  "logo": "",
+  "description": "BlueCross BlueShield of Tennessee is the Blue Cross Blue Shield licensee for Tennessee, headquartered in Chattanooga. Remote pharmacy roles here are coverage review, appeals and member outreach — prospective and retrospective utilization review against state and federal rules — and generally expect Tennessee residency.",
+  "employer_type": "health-plan",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "Tennessee plan."
+  },
+  "ats_tokens": [
+    "workday:bcbst",
+    "name:bcbst"
+  ],
+  "sources": [
+    {
+      "url": "https://bcbst.wd1.myworkdayjobs.com/external/job/USA-TN-Chattanooga-Remote/Coverage-Review-Pharmacist_R-51087",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.bcbst.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

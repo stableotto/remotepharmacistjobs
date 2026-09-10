@@ -1,0 +1,34 @@
+{
+  "slug": "alcon",
+  "name": "Alcon",
+  "aka": [],
+  "homepage": "https://www.alcon.com",
+  "careers_url": "https://alcon.wd5.myworkdayjobs.com/careers_alcon",
+  "logo": "",
+  "description": "Alcon is a global eye care company. The remote listings carried here are territory pharmaceutical sales specialist roles.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:alcon",
+    "workday-site:careers_alcon",
+    "name:alcon"
+  ],
+  "sources": [
+    {
+      "url": "https://alcon.wd5.myworkdayjobs.com/careers_alcon/job/Remote-New-York/Pharmaceutical-Sales-Specialist---Manhattan-North--NY--Remote-_R-2026-49315-1",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.alcon.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10",
+  "out_of_scope": "Pharmaceutical sales territory roles, not pharmacist or pharmacy technician practice."
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "thermo-fisher-scientific",
+  "name": "Thermo Fisher Scientific",
+  "aka": [],
+  "homepage": "https://www.thermofisher.com",
+  "careers_url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers",
+  "logo": "logos/thermofisher.png",
+  "description": "Thermo Fisher Scientific is a life-sciences instruments and services company whose clinical research arm staffs functional service provider teams for pharmaceutical sponsors. Remote pharmacy-relevant roles are largely pharmacovigilance and GMP quality positions.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:thermofisher",
+    "workday-site:thermofishercareers",
+    "name:thermo-fisher"
+  ],
+  "sources": [
+    {
+      "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Philippines/FSP-Pharmacovigilance-Coordinator_R-01362190",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.thermofisher.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

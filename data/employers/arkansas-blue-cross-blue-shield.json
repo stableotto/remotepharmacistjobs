@@ -1,0 +1,35 @@
+{
+  "slug": "arkansas-blue-cross-blue-shield",
+  "name": "Arkansas Blue Cross and Blue Shield",
+  "aka": [
+    "ABCBS"
+  ],
+  "homepage": "https://www.arkansasbluecross.com",
+  "careers_url": "https://arkbluecross.wd1.myworkdayjobs.com/abcbs_external_careers",
+  "logo": "",
+  "description": "Arkansas Blue Cross and Blue Shield is the Blue Cross Blue Shield licensee for Arkansas. Its remote clinical pharmacist roles work under pharmacy leadership alongside medical directors on coverage and utilization decisions, and typically expect Arkansas residency or licensure.",
+  "employer_type": "health-plan",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "Arkansas plan."
+  },
+  "ats_tokens": [
+    "workday:arkbluecross",
+    "workday-site:abcbs_external_careers",
+    "name:arkbluecross"
+  ],
+  "sources": [
+    {
+      "url": "https://arkbluecross.wd1.myworkdayjobs.com/abcbs_external_careers/job/Arkansas-Remote/Clinical-Pharmacist-Part-Time_R0013757",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.arkansasbluecross.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

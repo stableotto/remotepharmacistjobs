@@ -1,0 +1,37 @@
+{
+  "slug": "shields-health-solutions",
+  "name": "Shields Health Solutions",
+  "aka": [],
+  "homepage": "https://shieldshealthsolutions.com",
+  "careers_url": "https://job-boards.greenhouse.io/shieldshealthsolutions",
+  "logo": "logos/shieldshealthsolutions.png",
+  "description": "Shields Health Solutions builds and runs specialty pharmacy programs inside health systems, rather than operating a retail chain of its own. It partners with health systems across the country and is a wholly owned subsidiary of Walgreens Boots Alliance. Remote roles here are weighted toward clinical specialty pharmacists and certified technicians doing refill coordination, adherence outreach and prior-authorization support for health-system patients.",
+  "employer_type": "specialty-pharmacy",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": true,
+    "note": "Supports health system partners across many states."
+  },
+  "ats_tokens": [
+    "greenhouse:shieldshealthsolutions",
+    "name:shields-health-solutions"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/shieldshealthsolutions/jobs/7789410003",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://shieldshealthsolutions.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://shieldshealthsolutions.com/",
+      "what": "Press release or trade coverage",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

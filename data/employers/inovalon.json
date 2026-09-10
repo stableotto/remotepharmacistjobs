@@ -1,0 +1,32 @@
+{
+  "slug": "inovalon",
+  "name": "Inovalon",
+  "aka": [],
+  "homepage": "https://www.inovalon.com",
+  "careers_url": "https://www.inovalon.com/careers/job/",
+  "logo": "",
+  "description": "Inovalon, founded in 1998, is a healthcare data and analytics company serving payers, providers and life-sciences customers. Pharmacy roles here are data and clinical-analytics positions rather than patient-facing practice.",
+  "employer_type": "hit",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "site:inovalon",
+    "name:inovalon"
+  ],
+  "sources": [
+    {
+      "url": "https://www.inovalon.com/careers/job/?gh_jid=7822222003",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.inovalon.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

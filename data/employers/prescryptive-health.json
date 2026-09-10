@@ -1,0 +1,33 @@
+{
+  "slug": "prescryptive-health",
+  "name": "Prescryptive Health",
+  "aka": [],
+  "homepage": "https://prescryptive.com",
+  "careers_url": "https://prescryptive.wd503.myworkdayjobs.com/prescryptive_health_external",
+  "logo": "",
+  "description": "Prescryptive Health is a technology-driven pharmacy benefit company built around price transparency and direct-to-consumer pricing information. Remote roles are senior commercial and pharmacy leadership positions.",
+  "employer_type": "pbm",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:prescryptive",
+    "workday-site:prescryptive_health_external",
+    "name:prescryptive"
+  ],
+  "sources": [
+    {
+      "url": "https://prescryptive.wd503.myworkdayjobs.com/prescryptive_health_external/job/Remote---US---All/Senior-Vice-President--Pharmaceutical-Manufacturer-Business-Development_JR100094",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://prescryptive.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "ascent-global-logistics",
+  "name": "Ascent Global Logistics",
+  "aka": [],
+  "homepage": "https://www.ascentgl.com",
+  "careers_url": "https://ascentgl.wd1.myworkdayjobs.com/asg",
+  "logo": "",
+  "description": "Ascent Global Logistics, headquartered in Belleville, Michigan, is an expedited and time-critical freight provider whose life-sciences arm handles radiopharmaceutical shipments.",
+  "employer_type": "other",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:ascentgl",
+    "workday-site:asg",
+    "name:ascentgl"
+  ],
+  "sources": [
+    {
+      "url": "https://ascentgl.wd1.myworkdayjobs.com/asg/job/Remote---US/Program-Manager--Radiopharmaceutical---Life-Sciences-Logistics_R1785",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.ascentgl.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10",
+  "out_of_scope": "Logistics program management, not pharmacist or pharmacy technician practice."
+}

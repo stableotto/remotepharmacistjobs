@@ -1,0 +1,34 @@
+{
+  "slug": "affirmedrx",
+  "name": "AffirmedRx",
+  "aka": [
+    "AffirmedRx PBC"
+  ],
+  "homepage": "https://affirmedrx.com",
+  "careers_url": "https://job-boards.greenhouse.io/affirmedrxpbc",
+  "logo": "",
+  "description": "AffirmedRx is a public benefit corporation operating as a pharmacy benefit manager, built around transparent pricing and clinical decision-making. Remote pharmacist roles cover clinical program and benefit management work.",
+  "employer_type": "pbm",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "greenhouse:affirmedrxpbc",
+    "name:affirmedrxpbc"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/affirmedrxpbc/jobs/5406691008",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://affirmedrx.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "foundation-health",
+  "name": "Foundation Health",
+  "aka": [],
+  "homepage": "https://foundationhealth.com",
+  "careers_url": "https://jobs.ashbyhq.com/foundationhealthcareers",
+  "logo": "",
+  "description": "Foundation Health provides white-labeled digital pharmacy, telehealth and diagnostics infrastructure through developer-facing APIs, selling to health systems, payers and manufacturers. Its PharmD roles are operations and solutions work — translating health-system pharmacy practice into software — rather than dispensing.",
+  "employer_type": "hit",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "ashby:foundationhealthcareers",
+    "name:foundationhealthcareers"
+  ],
+  "sources": [
+    {
+      "url": "https://jobs.ashbyhq.com/foundationhealthcareers/35d0e01a-060c-4dcc-809e-29a9eedc931e",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://foundationhealth.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

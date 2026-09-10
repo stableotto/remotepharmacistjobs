@@ -1,0 +1,35 @@
+{
+  "slug": "boston-medical-center",
+  "name": "Boston Medical Center",
+  "aka": [
+    "BMC"
+  ],
+  "homepage": "https://www.bmc.org",
+  "careers_url": "https://bmc.wd1.myworkdayjobs.com/bmc",
+  "logo": "logos/bmc.png",
+  "description": "Boston Medical Center is a safety-net academic medical center in Boston. Its remote pharmacist postings have included medication refill center work handling refill requests for the system's patients, expecting Massachusetts licensure.",
+  "employer_type": "health-system",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "Massachusetts health system."
+  },
+  "ats_tokens": [
+    "workday:bmc",
+    "workday-site:bmc",
+    "name:bmc"
+  ],
+  "sources": [
+    {
+      "url": "https://bmc.wd1.myworkdayjobs.com/bmc/job/Remote/Medication-Refill-Center-Pharmacist-Per-Diem_45615-1",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.bmc.org",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

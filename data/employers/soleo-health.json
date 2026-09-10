@@ -1,0 +1,31 @@
+{
+  "slug": "soleo-health",
+  "name": "Soleo Health",
+  "aka": [],
+  "homepage": "https://soleohealth.com",
+  "careers_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4347922",
+  "logo": "",
+  "description": "Soleo Health provides specialty infusion and pharmacy services delivered in the home, ambulatory infusion suites and other alternate sites. Its remote pharmacy roles support that infusion business.",
+  "employer_type": "specialty-pharmacy",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "name:soleo-health-inc"
+  ],
+  "sources": [
+    {
+      "url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4347922",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://soleohealth.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

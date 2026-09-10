@@ -1,0 +1,35 @@
+{
+  "slug": "cencora",
+  "name": "Cencora",
+  "aka": [
+    "AmerisourceBergen",
+    "ABC"
+  ],
+  "homepage": "https://www.cencora.com",
+  "careers_url": "https://myhrabc.wd5.myworkdayjobs.com/global",
+  "logo": "",
+  "description": "Cencora, formerly AmerisourceBergen, is a global pharmaceutical sourcing and distribution company. Remote roles include registered pharmacy technician and data coordination work supporting its patient services businesses.",
+  "employer_type": "specialty-pharmacy",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:myhrabc",
+    "name:myhrabc"
+  ],
+  "sources": [
+    {
+      "url": "https://myhrabc.wd5.myworkdayjobs.com/global/job/Remote-Kentucky/Data-Entry-Coordinator_R269345",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.cencora.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

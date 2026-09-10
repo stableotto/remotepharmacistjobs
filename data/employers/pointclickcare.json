@@ -1,0 +1,32 @@
+{
+  "slug": "pointclickcare",
+  "name": "PointClickCare",
+  "aka": [],
+  "homepage": "https://pointclickcare.com",
+  "careers_url": "https://jobs.lever.co/pointclickcare",
+  "logo": "logos/pointclickcare.png",
+  "description": "PointClickCare is a healthcare software company whose platform is widely used across long-term and post-acute care. Pharmacy-adjacent roles here are product, clinical-content and integration work rather than patient care — a route into health IT for pharmacists who want to leave dispensing entirely.",
+  "employer_type": "hit",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "lever:pointclickcare",
+    "name:pointclickcare"
+  ],
+  "sources": [
+    {
+      "url": "https://jobs.lever.co/pointclickcare/5fb4a010-9087-45ac-b49a-631cfdb0b2c8",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://pointclickcare.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "maplight-therapeutics",
+  "name": "MapLight Therapeutics",
+  "aka": [],
+  "homepage": "https://maplightrx.com",
+  "careers_url": "https://job-boards.greenhouse.io/maplighttherapeutics",
+  "logo": "",
+  "description": "MapLight Therapeutics is a clinical-stage neuroscience company developing treatments for central nervous system disorders. Note that the job feed has historically mis-rendered this employer's name as \"Maplelight\".",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "greenhouse:maplighttherapeutics",
+    "name:maplelight-therapeutics"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/maplighttherapeutics/jobs/5206405008",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://maplightrx.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

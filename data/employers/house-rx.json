@@ -1,0 +1,32 @@
+{
+  "slug": "house-rx",
+  "name": "House Rx",
+  "aka": [],
+  "homepage": "https://www.houserx.com",
+  "careers_url": "https://www.houserx.com/careers",
+  "logo": "",
+  "description": "House Rx works with specialty care clinics — particularly oncology — to bring specialty pharmacy dispensing in-house, aiming to make specialty medications more accessible and affordable. Its pharmacist roles work directly with clinic teams on specialty patient outcomes.",
+  "employer_type": "specialty-pharmacy",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "site:houserx",
+    "name:houserx"
+  ],
+  "sources": [
+    {
+      "url": "https://www.houserx.com/careers?gh_jid=4722617005",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.houserx.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

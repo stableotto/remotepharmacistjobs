@@ -1,0 +1,33 @@
+{
+  "slug": "geisinger",
+  "name": "Geisinger",
+  "aka": [],
+  "homepage": "https://www.geisinger.org",
+  "careers_url": "https://geisinger.wd5.myworkdayjobs.com/geisingerexternal",
+  "logo": "",
+  "description": "Geisinger is an integrated health system in Pennsylvania that runs both hospitals and its own health plan. Remote pharmacy postings span health-plan and system pharmacy leadership, and are generally tied to Pennsylvania residency or licensure.",
+  "employer_type": "health-system",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "Pennsylvania health system."
+  },
+  "ats_tokens": [
+    "workday:geisinger",
+    "workday-site:geisingerexternal",
+    "name:geisinger"
+  ],
+  "sources": [
+    {
+      "url": "https://geisinger.wd5.myworkdayjobs.com/geisingerexternal/job/Work-from-Home/Director-Pharmacy-Services_R-02464",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.geisinger.org",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

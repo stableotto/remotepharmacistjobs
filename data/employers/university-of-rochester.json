@@ -1,0 +1,35 @@
+{
+  "slug": "university-of-rochester",
+  "name": "University of Rochester",
+  "aka": [
+    "UR Medicine"
+  ],
+  "homepage": "https://www.rochester.edu",
+  "careers_url": "https://rochester.wd5.myworkdayjobs.com/ur_staff",
+  "logo": "",
+  "description": "The University of Rochester is a private research university whose medical center anchors UR Medicine in upstate New York. Remote pharmacy technician roles support that system and generally expect New York residency.",
+  "employer_type": "health-system",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "New York health system."
+  },
+  "ats_tokens": [
+    "workday:rochester",
+    "workday-site:ur_staff",
+    "name:rochester"
+  ],
+  "sources": [
+    {
+      "url": "https://rochester.wd5.myworkdayjobs.com/ur_staff/job/Remote-Work---New-York/Pharmacy-Specialized-Tech---Home-Infusion_R274408",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.rochester.edu",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

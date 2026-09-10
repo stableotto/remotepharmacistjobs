@@ -1,0 +1,36 @@
+{
+  "slug": "axiom",
+  "name": "Axiom",
+  "aka": [
+    "Axiom Talent Platform",
+    "Axiom Law"
+  ],
+  "homepage": "https://www.axiomlaw.com",
+  "careers_url": "https://www.axiomlaw.com/careers/lawyers/available-positions/7893484002",
+  "logo": "",
+  "description": "Axiom is a legal talent platform placing lawyers on client engagements. Its pharmacy-titled listings are lawyer roles in pharmaceutical market access and contracting.",
+  "employer_type": "other",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "site:axiomlaw",
+    "name:axiomtalentplatform"
+  ],
+  "sources": [
+    {
+      "url": "https://www.axiomlaw.com/careers/lawyers/available-positions/7893484002?gh_jid=7893484002",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.axiomlaw.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10",
+  "out_of_scope": "Legal roles placed through a talent platform, not pharmacy practice."
+}

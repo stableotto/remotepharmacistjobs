@@ -1,0 +1,33 @@
+{
+  "slug": "everise",
+  "name": "Everise",
+  "aka": [],
+  "homepage": "https://www.weareeverise.com",
+  "careers_url": "https://weareeverise.wd1.myworkdayjobs.com/everisecareers",
+  "logo": "",
+  "description": "Everise is a global customer-experience outsourcing company that staffs healthcare support teams, including certified pharmacy technician roles delivered from home on behalf of client healthcare organizations.",
+  "employer_type": "other",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:weareeverise",
+    "workday-site:everisecareers",
+    "name:weareeverise"
+  ],
+  "sources": [
+    {
+      "url": "https://weareeverise.wd1.myworkdayjobs.com/everisecareers/job/Work-From-Home-Texas/Certified-Pharmacy-Technician---Work-at-Home_R0035146",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.weareeverise.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

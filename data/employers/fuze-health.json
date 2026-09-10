@@ -1,0 +1,48 @@
+{
+  "slug": "fuze-health",
+  "name": "Fuze Health",
+  "aka": [
+    "Alto Pharmacy",
+    "Truepill",
+    "LetsGetChecked",
+    "FuzeRx"
+  ],
+  "homepage": "https://www.fuzehealth.com",
+  "careers_url": "https://alto.wd1.myworkdayjobs.com/fuzehealthcareersite",
+  "logo": "",
+  "description": "Fuze Health is a digital pharmacy and at-home care company formed by combining Truepill, LetsGetChecked and Alto Pharmacy. Its FuzeRx arm provides white-labeled digital pharmacy services for healthcare partners. Remote consulting pharmacist roles support that pharmacy operation and are usually tied to a specific state licence.",
+  "employer_type": "telehealth",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "Consulting pharmacist postings have named a single state licence."
+  },
+  "ats_tokens": [
+    "workday:alto",
+    "workday-site:fuzehealthcareersite",
+    "name:alto"
+  ],
+  "sources": [
+    {
+      "url": "https://alto.wd1.myworkdayjobs.com/fuzehealthcareersite/job/Remote---Florida/Consulting-Pharmacist---FuzeRx_R200876",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.fuzehealth.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.fuzehealth.com/about-us/",
+      "what": "Press release or trade coverage",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://hitconsultant.net/2025/05/23/fuze-health-launches-uniting-truepill-letsgetchecked-alto/",
+      "what": "Press release or trade coverage",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "strive-pharmacy",
+  "name": "Strive Pharmacy",
+  "aka": [],
+  "homepage": "https://strivepharmacy.com",
+  "careers_url": "https://job-boards.greenhouse.io/strivepharmacy",
+  "logo": "",
+  "description": "Strive Pharmacy is a compounding pharmacy built around personalized formulations for individual patients. Remote roles support that compounding operation and are usually tied to specific state licensure.",
+  "employer_type": "specialty-pharmacy",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "greenhouse:strivepharmacy",
+    "name:strivepharmacy"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/strivepharmacy/jobs/5208299007",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://strivepharmacy.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

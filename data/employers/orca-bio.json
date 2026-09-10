@@ -1,0 +1,34 @@
+{
+  "slug": "orca-bio",
+  "name": "Orca Bio",
+  "aka": [
+    "Orca Biosystems"
+  ],
+  "homepage": "https://orcabio.com",
+  "careers_url": "https://jobs.lever.co/orcabiosystems",
+  "logo": "logos/orcabiosystems.png",
+  "description": "Orca Bio is a clinical-stage biotechnology company developing cell therapies intended to replace conventional allogeneic stem cell transplant for blood cancer patients. Its remote pharmacy hiring is pharmacovigilance and drug-safety work, which is a common landing spot for pharmacists moving into industry.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "lever:orcabiosystems",
+    "name:orcabiosystems"
+  ],
+  "sources": [
+    {
+      "url": "https://jobs.lever.co/orcabiosystems/329a7ea8-c1b4-4aa7-813a-6dbdc1a7dc6f",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://orcabio.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

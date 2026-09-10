@@ -1,0 +1,32 @@
+{
+  "slug": "henry-schein",
+  "name": "Henry Schein",
+  "aka": [],
+  "homepage": "https://www.henryschein.com",
+  "careers_url": "https://henryschein.wd1.myworkdayjobs.com/external_careers",
+  "logo": "",
+  "description": "Henry Schein is a distributor of healthcare products and services to office-based practitioners, with a substantial practice-management software business. Remote pharmacy-adjacent openings are product and category management roles.",
+  "employer_type": "hit",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:henryschein",
+    "name:henryschein"
+  ],
+  "sources": [
+    {
+      "url": "https://henryschein.wd1.myworkdayjobs.com/external_careers/job/United-States---Remote/Sr-Manager--Product-Category-Management---Medical_R134957",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.henryschein.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

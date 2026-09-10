@@ -1,0 +1,33 @@
+{
+  "slug": "zing-health",
+  "name": "Zing Health",
+  "aka": [
+    "Zing Health Holdings"
+  ],
+  "homepage": "https://myzinghealth.com",
+  "careers_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4460390",
+  "logo": "",
+  "description": "Zing Health is a Medicare Advantage plan focused on underserved communities. Pharmacy roles support its plan-side benefit operations.",
+  "employer_type": "health-plan",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "name:zing-health-holdings-inc"
+  ],
+  "sources": [
+    {
+      "url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4460390",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://myzinghealth.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

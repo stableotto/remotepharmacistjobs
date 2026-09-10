@@ -1,0 +1,35 @@
+{
+  "slug": "florida-cancer-specialists",
+  "name": "Florida Cancer Specialists & Research Institute",
+  "aka": [
+    "FCS"
+  ],
+  "homepage": "https://flcancer.com",
+  "careers_url": "https://flcancer.wd1.myworkdayjobs.com/flcancer_careers",
+  "logo": "",
+  "description": "Florida Cancer Specialists & Research Institute is one of the largest independent oncology practices in the United States, operating a large network of clinics across Florida along with its own dispensing and specialty pharmacy operation. Remote pharmacy roles are typically oncology-focused technician and pharmacist work supporting that network, and generally expect Florida licensure.",
+  "employer_type": "specialty-pharmacy",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "Florida-focused network."
+  },
+  "ats_tokens": [
+    "workday:flcancer",
+    "workday-site:flcancer_careers",
+    "name:flcancer"
+  ],
+  "sources": [
+    {
+      "url": "https://flcancer.wd1.myworkdayjobs.com/flcancer_careers/job/Florida---Remote/Registered-Pharmacy-Technician-Rx-To-Go_JR22270",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://flcancer.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

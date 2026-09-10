@@ -1,0 +1,32 @@
+{
+  "slug": "mckesson",
+  "name": "McKesson",
+  "aka": [],
+  "homepage": "https://www.mckesson.com",
+  "careers_url": "https://mckesson.wd3.myworkdayjobs.com/external_careers",
+  "logo": "logos/mckesson.png",
+  "description": "McKesson is a Fortune 10 pharmaceutical distributor whose businesses reach across most of the drug supply chain, including specialty distribution and provider technology. Remote pharmacist roles tend to be clinical content and program management.",
+  "employer_type": "specialty-pharmacy",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:mckesson",
+    "name:mckesson"
+  ],
+  "sources": [
+    {
+      "url": "https://mckesson.wd3.myworkdayjobs.com/external_careers/job/USA-TX-Remote/Sr-Manager--Clinical-Content--Pharmacist-_JR0152604",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.mckesson.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

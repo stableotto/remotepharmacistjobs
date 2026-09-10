@@ -1,0 +1,35 @@
+{
+  "slug": "inizio-engage",
+  "name": "Inizio Engage",
+  "aka": [
+    "Inizio"
+  ],
+  "homepage": "https://inizioengage.com",
+  "careers_url": "https://inizio.wd3.myworkdayjobs.com/cso",
+  "logo": "",
+  "description": "Inizio Engage is a commercialization and patient-solutions partner that runs field and clinical teams on behalf of pharmaceutical clients. Its specialty pharmacy liaison roles are employed by Inizio but deployed to a client biotech — worth knowing before applying, since the day-to-day team is the client's.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:inizio",
+    "workday-site:cso",
+    "name:inizio"
+  ],
+  "sources": [
+    {
+      "url": "https://inizio.wd3.myworkdayjobs.com/cso/job/United-States---Remote/Specialty-Pharmacy-Liaison_JR36352",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://inizioengage.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

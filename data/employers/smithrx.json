@@ -1,0 +1,32 @@
+{
+  "slug": "smithrx",
+  "name": "SmithRx",
+  "aka": [],
+  "homepage": "https://smithrx.com",
+  "careers_url": "https://job-boards.greenhouse.io/smithrx",
+  "logo": "logos/smithrx.png",
+  "description": "SmithRx is a venture-backed pharmacy benefit manager built around a pass-through pricing model, positioning itself explicitly against the incumbent PBMs. Remote pharmacist roles cover clinical review, formulary and prior authorization for its book of employer clients.",
+  "employer_type": "pbm",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "greenhouse:smithrx",
+    "name:smithrx"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/smithrx/jobs/8762087002",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://smithrx.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

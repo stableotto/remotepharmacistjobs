@@ -1,0 +1,32 @@
+{
+  "slug": "evergreen-nephrology",
+  "name": "Evergreen Nephrology",
+  "aka": [],
+  "homepage": "https://www.evergreennephrology.com",
+  "careers_url": "https://job-boards.greenhouse.io/evergreennephrology",
+  "logo": "logos/evergreennephrology.png",
+  "description": "Evergreen Nephrology partners with nephrologists to deliver value-based kidney care. Remote pharmacist roles focus on medication management for chronic kidney disease patients, where polypharmacy and dose adjustment are central to the clinical model.",
+  "employer_type": "mtm",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "greenhouse:evergreennephrology",
+    "name:evergreen-nephrology"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/evergreennephrology/jobs/4730287005",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.evergreennephrology.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

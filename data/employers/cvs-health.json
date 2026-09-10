@@ -1,0 +1,36 @@
+{
+  "slug": "cvs-health",
+  "name": "CVS Health",
+  "aka": [
+    "Aetna",
+    "Caremark"
+  ],
+  "homepage": "https://www.cvshealth.com",
+  "careers_url": "https://cvshealth.wd1.myworkdayjobs.com/cvs_health_careers",
+  "logo": "logos/cvshealth.png",
+  "description": "CVS Health spans retail pharmacy, the Caremark PBM and the Aetna health plan, making it one of the largest pharmacy employers in the country. Its work-from-home postings are concentrated in PBM and plan-side pharmacy management rather than store operations.",
+  "employer_type": "pbm",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:cvshealth",
+    "workday-site:cvs_health_careers",
+    "name:cvs-health"
+  ],
+  "sources": [
+    {
+      "url": "https://cvshealth.wd1.myworkdayjobs.com/cvs_health_careers/job/CT---Work-from-home/Manager-MPPS-Pharmacy-Policy-Management_R1021358",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.cvshealth.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

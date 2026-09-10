@@ -1,0 +1,33 @@
+{
+  "slug": "devoted-health",
+  "name": "Devoted Health",
+  "aka": [],
+  "homepage": "https://www.devoted.com",
+  "careers_url": "https://devoted.wd1.myworkdayjobs.com/devoted",
+  "logo": "",
+  "description": "Devoted Health is a Medicare Advantage insurer that also operates its own clinical arm. Its pharmacy roles sit on the benefits side — managing pharmacy trend, formulary and PBM relationships for its plans — so the work is health-plan pharmacy rather than dispensing.",
+  "employer_type": "health-plan",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:devoted",
+    "workday-site:devoted",
+    "name:devoted-health"
+  ],
+  "sources": [
+    {
+      "url": "https://devoted.wd1.myworkdayjobs.com/devoted/job/Remote-USA/Pharmacy-Benefits-Senior-Manager_R3534",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.devoted.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

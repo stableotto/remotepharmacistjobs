@@ -1,0 +1,32 @@
+{
+  "slug": "brown-and-brown",
+  "name": "Brown & Brown",
+  "aka": [],
+  "homepage": "https://www.bbinsurance.com",
+  "careers_url": "https://bbinsurance.wd1.myworkdayjobs.com/careers",
+  "logo": "",
+  "description": "Brown & Brown is an insurance brokerage. Its pharmacy-titled remote roles are client engagement and project management on pharmacy benefit consulting engagements rather than clinical pharmacy.",
+  "employer_type": "other",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:bbinsurance",
+    "name:bbinsurance"
+  ],
+  "sources": [
+    {
+      "url": "https://bbinsurance.wd1.myworkdayjobs.com/careers/job/Remote---USA/Client-Engagement-Project-Manager_R26_0000002716",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.bbinsurance.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

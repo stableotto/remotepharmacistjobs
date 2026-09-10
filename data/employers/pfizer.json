@@ -1,0 +1,33 @@
+{
+  "slug": "pfizer",
+  "name": "Pfizer",
+  "aka": [],
+  "homepage": "https://www.pfizer.com",
+  "careers_url": "https://pfizer.wd1.myworkdayjobs.com/pfizercareers",
+  "logo": "",
+  "description": "Pfizer is a global biopharmaceutical company. Its remote pharmacy-adjacent roles are largely medical and commercial partnership positions.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:pfizer",
+    "workday-site:pfizercareers",
+    "name:pfizer"
+  ],
+  "sources": [
+    {
+      "url": "https://pfizer.wd1.myworkdayjobs.com/pfizercareers/job/Canada---Quebec---Remote/Premierre-chef---Partenariats--pharmacies-de-dtail-et-distributeurs---Qubec-----Senior-Manager--Retail-Pharmacy---Distribution-Partnerships--Quebec-_4956130",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.pfizer.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

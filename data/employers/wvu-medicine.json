@@ -1,0 +1,40 @@
+{
+  "slug": "wvu-medicine",
+  "name": "WVU Medicine",
+  "aka": [
+    "West Virginia University Health System"
+  ],
+  "homepage": "https://wvumedicine.org",
+  "careers_url": "https://wvumedicine.wd1.myworkdayjobs.com/peak",
+  "logo": "",
+  "description": "WVU Medicine is the nonprofit health system affiliated with West Virginia University, serving West Virginia and parts of Maryland, Ohio and Pennsylvania. It runs its own dually accredited specialty pharmacy and home infusion service. Remote pharmacy postings include managed-care and PBM-facing pharmacist roles supporting the system's own benefit design.",
+  "employer_type": "health-system",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "Regional health system."
+  },
+  "ats_tokens": [
+    "workday:wvumedicine",
+    "workday-site:peak",
+    "name:wvumedicine"
+  ],
+  "sources": [
+    {
+      "url": "https://wvumedicine.wd1.myworkdayjobs.com/peak/job/Remote/Managed-Care-Pharmacist---Managed-Care-PBM_JR26-43664-2",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://wvumedicine.org",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://wvumedicine.org/our-care/pharmacies/specialty-pharmacy/",
+      "what": "Press release or trade coverage",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

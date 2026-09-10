@@ -1,0 +1,36 @@
+{
+  "slug": "asahi-kasei-america",
+  "name": "Asahi Kasei America",
+  "aka": [
+    "Veloxis Pharmaceuticals",
+    "Asahi Kasei Group"
+  ],
+  "homepage": "https://www.asahi-kasei.com",
+  "careers_url": "https://akamerica.wd501.myworkdayjobs.com/aka",
+  "logo": "",
+  "description": "Asahi Kasei is a Japanese diversified group with material, homes and health care sectors; its health care arm includes the US pharmaceutical business Veloxis. Remote pharmacy-adjacent hiring is national account management on the pharmaceutical side.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:akamerica",
+    "workday-site:aka",
+    "name:akamerica"
+  ],
+  "sources": [
+    {
+      "url": "https://akamerica.wd501.myworkdayjobs.com/aka/job/Remote-Home-Office-USA/National-Accounts-Manager--Pharmaceuticals-_R5687-1",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.asahi-kasei.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

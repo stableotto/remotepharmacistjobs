@@ -1,0 +1,32 @@
+{
+  "slug": "revolution-medicines",
+  "name": "Revolution Medicines",
+  "aka": [],
+  "homepage": "https://www.revmed.com",
+  "careers_url": "https://www.revmed.com/careers-list/",
+  "logo": "",
+  "description": "Revolution Medicines is a clinical-stage oncology company developing targeted therapies for RAS-driven cancers. Remote roles suit pharmacists with clinical development or safety backgrounds.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "site:revmed",
+    "name:revolutionmedicines"
+  ],
+  "sources": [
+    {
+      "url": "https://www.revmed.com/careers-list/?gh_jid=7694372003",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.revmed.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "regeneron",
+  "name": "Regeneron",
+  "aka": [],
+  "homepage": "https://www.regeneron.com",
+  "careers_url": "https://regeneron.wd1.myworkdayjobs.com/careers",
+  "logo": "",
+  "description": "Regeneron develops medicines for serious disease, with a large immunology and ophthalmology portfolio. Remote roles are typically specialty representative and medical positions.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:regeneron",
+    "name:regeneron"
+  ],
+  "sources": [
+    {
+      "url": "https://regeneron.wd1.myworkdayjobs.com/careers/job/Remote---Canada/Pharmaceutical-Sales-Representative---Immunology---Hamilton_R49401",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.regeneron.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

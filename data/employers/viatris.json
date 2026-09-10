@@ -1,0 +1,32 @@
+{
+  "slug": "viatris",
+  "name": "Viatris",
+  "aka": [],
+  "homepage": "https://www.viatris.com",
+  "careers_url": "https://viatris.wd5.myworkdayjobs.com/external",
+  "logo": "",
+  "description": "Viatris is a global healthcare company combining generics and branded medicines. Pharmacy-adjacent remote roles are largely commercial and are often posted outside the United States.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:viatris",
+    "name:viatris"
+  ],
+  "sources": [
+    {
+      "url": "https://viatris.wd5.myworkdayjobs.com/external/job/Spain-Remote-Office/Pharmacy-Representative---Sevilla-and-Crdoba_R5673284",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.viatris.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "teladoc-health",
+  "name": "Teladoc Health",
+  "aka": [],
+  "homepage": "https://www.teladochealth.com",
+  "careers_url": "https://teladoc.wd503.myworkdayjobs.com/teladochealth_is_hiring",
+  "logo": "",
+  "description": "Teladoc Health is one of the largest virtual-care providers in the United States. Its clinical pharmacist roles are fully remote by the nature of the business, supporting virtual care delivery across a national member base — which usually means multi-state licensure.",
+  "employer_type": "telehealth",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": true,
+    "note": "National virtual care delivery typically requires licensure in multiple states."
+  },
+  "ats_tokens": [
+    "workday:teladoc",
+    "workday-site:teladochealth_is_hiring",
+    "name:teladoc"
+  ],
+  "sources": [
+    {
+      "url": "https://teladoc.wd503.myworkdayjobs.com/teladochealth_is_hiring/job/USA---Any-Location-Remote/Clinical-Pharmacist_JR20840",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.teladochealth.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

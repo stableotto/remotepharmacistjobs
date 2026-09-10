@@ -1,0 +1,43 @@
+{
+  "slug": "precision-medicine-group",
+  "name": "Precision Medicine Group",
+  "aka": [
+    "Precision AQ",
+    "Precision Value & Health",
+    "Precision for Medicine"
+  ],
+  "homepage": "https://www.precisionmedicinegrp.com",
+  "careers_url": "https://job-boards.greenhouse.io/precisionaq",
+  "logo": "",
+  "description": "Precision Medicine Group is a life-sciences services organization operating through two arms: Precision for Medicine, which does biomarker-driven R&D, and Precision AQ, its market-access and commercialization group formerly known as Precision Value & Health. Pharmacy-adjacent openings here are market-access and healthcare advertising project roles rather than clinical practice. Both of its job boards post under this one organization.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "greenhouse:precisionaq",
+    "greenhouse:precisionmedicinegroup",
+    "name:precisionaq",
+    "name:precisionmedicinegroup"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/precisionaq/jobs/6119520004",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.precisionmedicinegrp.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.precisionaq.com/newsroom/precision-value-health-unveils-new-identity-precision-aq",
+      "what": "Press release or trade coverage",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

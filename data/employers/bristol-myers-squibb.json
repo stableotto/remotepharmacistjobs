@@ -1,0 +1,36 @@
+{
+  "slug": "bristol-myers-squibb",
+  "name": "Bristol Myers Squibb",
+  "aka": [
+    "BMS",
+    "RayzeBio"
+  ],
+  "homepage": "https://www.bms.com",
+  "careers_url": "https://bristolmyerssquibb.wd5.myworkdayjobs.com/bms",
+  "logo": "",
+  "description": "Bristol Myers Squibb is a global biopharmaceutical company; RayzeBio, its radiopharmaceutical business, operates as a wholly owned subsidiary. Remote pharmacy-adjacent roles are industry leadership positions in areas like radiopharmaceutical development.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:bristolmyerssquibb",
+    "workday-site:bms",
+    "name:bristolmyerssquibb"
+  ],
+  "sources": [
+    {
+      "url": "https://bristolmyerssquibb.wd5.myworkdayjobs.com/bms/job/Remote---United-States---US/Head--Radiopharmaceutical-Diagnostic-Development_R1605327",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.bms.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

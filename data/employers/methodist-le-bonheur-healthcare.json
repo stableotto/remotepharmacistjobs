@@ -1,0 +1,35 @@
+{
+  "slug": "methodist-le-bonheur-healthcare",
+  "name": "Methodist Le Bonheur Healthcare",
+  "aka": [
+    "MLH"
+  ],
+  "homepage": "https://www.methodisthealth.org",
+  "careers_url": "https://methodisthealth.wd5.myworkdayjobs.com/mlh",
+  "logo": "",
+  "description": "Methodist Le Bonheur Healthcare is a nonprofit health system based in Memphis, Tennessee. Its remote specialty pharmacy call center roles support the system's own specialty pharmacy patients and expect Tennessee residency.",
+  "employer_type": "health-system",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "Tennessee health system."
+  },
+  "ats_tokens": [
+    "workday:methodisthealth",
+    "workday-site:mlh",
+    "name:methodisthealth"
+  ],
+  "sources": [
+    {
+      "url": "https://methodisthealth.wd5.myworkdayjobs.com/mlh/job/Remote-Associate---Tennessee/Specialty-Pharmacy-Call-Center-Pharmacist_R-20427",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.methodisthealth.org",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

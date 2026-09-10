@@ -1,0 +1,43 @@
+{
+  "slug": "anewhealth",
+  "name": "AnewHealth",
+  "aka": [
+    "ExactCare",
+    "ExactCare Pharmacy",
+    "CareKinesis",
+    "Tabula Rasa HealthCare"
+  ],
+  "homepage": "https://anewhealthrx.com",
+  "careers_url": "https://exactcare.wd1.myworkdayjobs.com/anewhealth_career_site",
+  "logo": "logos/exactcare.png",
+  "description": "AnewHealth is a pharmacy care management company for people with complex, chronic medication needs living at home or in community settings. It was formed when ExactCare and Tabula Rasa HealthCare combined and rebranded in 2024; the ExactCare and CareKinesis pharmacy brands still operate under their own names. The company is licensed in all 50 states and serves largely Medicare, Medicaid, dual-eligible and PACE populations. Most of its remote pharmacy roles are medication-review, adherence and engagement work rather than dispensing.",
+  "employer_type": "specialty-pharmacy",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": true,
+    "note": "Licensed to dispense in all 50 states; clinical roles commonly ask for multiple state licences."
+  },
+  "ats_tokens": [
+    "workday:exactcare",
+    "workday-site:anewhealth_career_site",
+    "name:exactcare"
+  ],
+  "sources": [
+    {
+      "url": "https://exactcare.wd1.myworkdayjobs.com/anewhealth_career_site/job/OH---Remote/Engagement-Technician--11-00AM---7-30PM-ET-_R-108862",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://anewhealthrx.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.globenewswire.com/news-release/2024/07/10/2911023/0/en/ExactCare-and-Tabula-Rasa-HealthCare-Rebrand-Combined-Organization-as-AnewHealth.html",
+      "what": "Press release or trade coverage",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

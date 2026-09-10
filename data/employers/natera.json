@@ -1,0 +1,32 @@
+{
+  "slug": "natera",
+  "name": "Natera",
+  "aka": [],
+  "homepage": "https://www.natera.com",
+  "careers_url": "https://job-boards.greenhouse.io/natera",
+  "logo": "",
+  "description": "Natera is a genetic testing and diagnostics company. Pharmacy-adjacent remote roles support its patient access and reimbursement operations.",
+  "employer_type": "hit",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "greenhouse:natera",
+    "name:natera"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/natera/jobs/5993187004",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.natera.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

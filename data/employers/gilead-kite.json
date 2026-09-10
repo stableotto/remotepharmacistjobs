@@ -1,0 +1,36 @@
+{
+  "slug": "gilead-kite",
+  "name": "Kite, a Gilead Company",
+  "aka": [
+    "Kite Pharma",
+    "Gilead"
+  ],
+  "homepage": "https://www.kitepharma.com",
+  "careers_url": "https://gilead.wd1.myworkdayjobs.com/kitepharmacareers",
+  "logo": "",
+  "description": "Kite is Gilead's cell therapy business, focused entirely on cancer. Remote pharmacy-adjacent roles include drug safety and quality positions supporting its CAR T programs.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:gilead",
+    "workday-site:kitepharmacareers",
+    "name:gilead"
+  ],
+  "sources": [
+    {
+      "url": "https://gilead.wd1.myworkdayjobs.com/kitepharmacareers/job/United-States--Remote/Senior-Manager--Kite-Safety-and-Pharmacovigilance_R0054369-1",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.kitepharma.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "leland",
+  "name": "Leland",
+  "aka": [],
+  "homepage": "https://www.joinleland.com",
+  "careers_url": "https://jobs.ashbyhq.com/leland",
+  "logo": "",
+  "description": "Leland is a coaching and admissions marketplace. Its pharmacy-titled listings are coaching engagements — helping applicants into pharmacy school or pharmacists into new roles — not pharmacy practice positions.",
+  "employer_type": "other",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "ashby:leland",
+    "name:leland"
+  ],
+  "sources": [
+    {
+      "url": "https://jobs.ashbyhq.com/leland/3ad4455b-dd86-4611-8939-ab4f158ef55d",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.joinleland.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10",
+  "out_of_scope": "Coaching marketplace listings, not pharmacist or pharmacy technician practice roles."
+}

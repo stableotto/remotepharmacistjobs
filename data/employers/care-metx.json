@@ -1,0 +1,31 @@
+{
+  "slug": "care-metx",
+  "name": "CareMetx",
+  "aka": [],
+  "homepage": "https://www.caremetx.com",
+  "careers_url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4392027",
+  "logo": "",
+  "description": "CareMetx provides hub services and patient-access technology for specialty therapies, handling benefit investigation, prior authorization and reimbursement support on behalf of manufacturers.",
+  "employer_type": "hit",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "name:care-metx"
+  ],
+  "sources": [
+    {
+      "url": "https://recruiting.paylocity.com/recruiting/Jobs/Details/4392027",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.caremetx.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

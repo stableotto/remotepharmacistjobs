@@ -1,0 +1,33 @@
+{
+  "slug": "centene",
+  "name": "Centene",
+  "aka": [],
+  "homepage": "https://www.centene.com",
+  "careers_url": "https://centene.wd5.myworkdayjobs.com/centene_external",
+  "logo": "logos/centene.png",
+  "description": "Centene is a large managed care organization focused on government-sponsored healthcare, covering tens of millions of Medicaid, Medicare and marketplace members. Remote pharmacy roles sit in medical management and health services.",
+  "employer_type": "health-plan",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:centene",
+    "workday-site:centene_external",
+    "name:centene"
+  ],
+  "sources": [
+    {
+      "url": "https://centene.wd5.myworkdayjobs.com/centene_external/job/Remote-LA/Pharmacy-Coordinator_1652895-1",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.centene.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

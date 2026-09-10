@@ -1,0 +1,39 @@
+{
+  "slug": "phil",
+  "name": "Phil",
+  "aka": [
+    "PHIL, Inc."
+  ],
+  "homepage": "https://phil.us",
+  "careers_url": "https://jobs.ashbyhq.com/phil",
+  "logo": "",
+  "description": "Phil is a patient-access and direct-to-patient prescription platform that connects prescribers, pharmacies and pharmaceutical manufacturers, founded in 2015 and based in San Francisco. Its remote roles are registered pharmacy technician positions handling prescription routing, claims support and benefit investigation on that platform.",
+  "employer_type": "hit",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "ashby:phil",
+    "name:phil"
+  ],
+  "sources": [
+    {
+      "url": "https://jobs.ashbyhq.com/phil/a3889edc-fcfc-46f0-8b10-c154dbe0bc62",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://phil.us",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://phil.us/company/",
+      "what": "Press release or trade coverage",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "ge-healthcare",
+  "name": "GE HealthCare",
+  "aka": [
+    "GEHC"
+  ],
+  "homepage": "https://www.gehealthcare.com",
+  "careers_url": "https://gehc.wd5.myworkdayjobs.com/gehc_externalsite",
+  "logo": "",
+  "description": "GE HealthCare makes medical imaging and diagnostics products, including a Pharmaceutical Diagnostics business that manufactures contrast and radiopharmaceutical agents. Remote pharmacy-adjacent roles include global quality assurance auditing.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:gehc",
+    "workday-site:gehc_externalsite",
+    "name:gehc"
+  ],
+  "sources": [
+    {
+      "url": "https://gehc.wd5.myworkdayjobs.com/gehc_externalsite/job/Remote/Global-Quality-Assurance-Auditor_R4039403-1",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.gehealthcare.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

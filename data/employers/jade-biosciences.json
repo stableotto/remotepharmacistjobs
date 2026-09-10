@@ -1,0 +1,32 @@
+{
+  "slug": "jade-biosciences",
+  "name": "Jade Biosciences",
+  "aka": [],
+  "homepage": "https://jadebiosciences.com",
+  "careers_url": "https://job-boards.greenhouse.io/jadebiosciences",
+  "logo": "",
+  "description": "Jade Biosciences is a clinical-stage biotechnology company developing therapies for autoimmune disease. Remote openings are industry roles suited to pharmacists with clinical development or safety experience.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "greenhouse:jadebiosciences",
+    "name:jadebiosciences"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/jadebiosciences/jobs/5407437008",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://jadebiosciences.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

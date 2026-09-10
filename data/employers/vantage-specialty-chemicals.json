@@ -1,0 +1,36 @@
+{
+  "slug": "vantage-specialty-chemicals",
+  "name": "Vantage",
+  "aka": [
+    "Vantage Specialty Chemicals"
+  ],
+  "homepage": "https://www.vantagegrp.com",
+  "careers_url": "https://vantage.wd1.myworkdayjobs.com/vantage_careers",
+  "logo": "",
+  "description": "Vantage supplies specialty chemical ingredients, including to pharmaceutical manufacturers. The listing carried here is a business development role.",
+  "employer_type": "other",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:vantage",
+    "workday-site:vantage_careers",
+    "name:vantage"
+  ],
+  "sources": [
+    {
+      "url": "https://vantage.wd1.myworkdayjobs.com/vantage_careers/job/Remote---Illinois/Pharmaceutical-Technical-Business-Development-Director_R-2274",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.vantagegrp.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10",
+  "out_of_scope": "Business development for chemical ingredients, not pharmacy practice."
+}

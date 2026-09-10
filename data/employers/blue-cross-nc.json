@@ -1,0 +1,41 @@
+{
+  "slug": "blue-cross-nc",
+  "name": "Blue Cross and Blue Shield of North Carolina",
+  "aka": [
+    "Blue Cross NC",
+    "BCBSNC"
+  ],
+  "homepage": "https://www.bluecrossnc.com",
+  "careers_url": "https://bcbsnc.wd5.myworkdayjobs.com/bcbsnc",
+  "logo": "",
+  "description": "Blue Cross and Blue Shield of North Carolina, commonly Blue Cross NC, is the Blue Cross Blue Shield licensee for North Carolina. Remote pharmacy services roles support pharmacy benefit administration and plan design, and expect North Carolina residency.",
+  "employer_type": "health-plan",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": false,
+    "note": "North Carolina plan."
+  },
+  "ats_tokens": [
+    "workday:bcbsnc",
+    "workday-site:bcbsnc",
+    "name:bcbsnc"
+  ],
+  "sources": [
+    {
+      "url": "https://bcbsnc.wd5.myworkdayjobs.com/bcbsnc/job/Remote-Flex---North-Carolina/Pharmacy-Services-Specialist_RQ0019307",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.bluecrossnc.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.bluecrossnc.com/about-us",
+      "what": "Press release or trade coverage",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

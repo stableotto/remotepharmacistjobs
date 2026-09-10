@@ -1,0 +1,33 @@
+{
+  "slug": "tandem-diabetes-care",
+  "name": "Tandem Diabetes Care",
+  "aka": [],
+  "homepage": "https://www.tandemdiabetes.com",
+  "careers_url": "https://tandemdiabetes.wd12.myworkdayjobs.com/tandemdiabetes",
+  "logo": "",
+  "description": "Tandem Diabetes Care makes insulin pumps and diabetes technology. Remote pharmacy-adjacent roles are trade and channel account management, which draw on pharmacy distribution knowledge.",
+  "employer_type": "hit",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:tandemdiabetes",
+    "workday-site:tandemdiabetes",
+    "name:tandemdiabetes"
+  ],
+  "sources": [
+    {
+      "url": "https://tandemdiabetes.wd12.myworkdayjobs.com/tandemdiabetes/job/Remote-US/Sr-Trade-Account-Manager--Remote-_JR101385-1",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.tandemdiabetes.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "humana",
+  "name": "Humana",
+  "aka": [
+    "CenterWell"
+  ],
+  "homepage": "https://www.humana.com",
+  "careers_url": "https://humana.wd5.myworkdayjobs.com/centerwell_external_career_site",
+  "logo": "",
+  "description": "Humana is a Fortune 50 integrated health company with a large Medicare Advantage business and the CenterWell pharmacy and care-delivery brand; its remote pharmacy postings run through the CenterWell career site. Roles are consultative and leadership pharmacy positions on the plan and mail-order side.",
+  "employer_type": "health-plan",
+  "remote_posture": "remote-by-state",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:humana",
+    "workday-site:centerwell_external_career_site",
+    "name:humana"
+  ],
+  "sources": [
+    {
+      "url": "https://humana.wd5.myworkdayjobs.com/centerwell_external_career_site/job/Remote-Nationwide/Consultative-Pharmacy-Technician_R-428451",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.humana.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

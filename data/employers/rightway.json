@@ -1,0 +1,34 @@
+{
+  "slug": "rightway",
+  "name": "Rightway",
+  "aka": [
+    "Rightway Healthcare"
+  ],
+  "homepage": "https://www.rightwayhealthcare.com",
+  "careers_url": "https://www.rightwayhealthcare.com/jobs",
+  "logo": "logos/rightwayhealthcare.png",
+  "description": "Rightway is a transparent-model PBM and care-navigation company that positions itself against traditional spread-pricing pharmacy benefit managers. Its remote pharmacy roles are front-line member-facing: benefit navigation, clinical review and helping members find lower-cost therapy options.",
+  "employer_type": "pbm",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "site:rightwayhealthcare",
+    "name:rightway-healthcare"
+  ],
+  "sources": [
+    {
+      "url": "https://www.rightwayhealthcare.com/jobs?gh_jid=7904861003",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.rightwayhealthcare.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

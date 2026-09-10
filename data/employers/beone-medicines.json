@@ -1,0 +1,35 @@
+{
+  "slug": "beone-medicines",
+  "name": "BeOne Medicines",
+  "aka": [
+    "BeiGene"
+  ],
+  "homepage": "https://www.beonemedicines.com",
+  "careers_url": "https://beigene.wd5.myworkdayjobs.com/beigene",
+  "logo": "",
+  "description": "BeOne Medicines is a global oncology company, formerly known as BeiGene. Its remote pharmacy-adjacent roles are in R&D quality and good pharmacovigilance practice — industry roles that draw on a pharmacist's regulatory and safety background rather than clinical practice.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "workday:beigene",
+    "workday-site:beigene",
+    "name:beigene"
+  ],
+  "sources": [
+    {
+      "url": "https://beigene.wd5.myworkdayjobs.com/beigene/job/Remote-US/Associate-Director--R-D-Quality-Good-Pharmacovigilance-Practice_R35036",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.beonemedicines.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}

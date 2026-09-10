@@ -1,0 +1,32 @@
+{
+  "slug": "ultragenyx",
+  "name": "Ultragenyx Pharmaceutical",
+  "aka": [],
+  "homepage": "https://www.ultragenyx.com",
+  "careers_url": "https://job-boards.greenhouse.io/ultragenyxpharmaceutical",
+  "logo": "",
+  "description": "Ultragenyx Pharmaceutical develops treatments for rare and ultra-rare genetic disease. Remote roles suit pharmacists with rare-disease, medical affairs or drug safety backgrounds.",
+  "employer_type": "pharma",
+  "remote_posture": "fully-remote",
+  "multi_state_licensure": {
+    "expected": null,
+    "note": ""
+  },
+  "ats_tokens": [
+    "greenhouse:ultragenyxpharmaceutical",
+    "name:ultragenyxpharmaceutical"
+  ],
+  "sources": [
+    {
+      "url": "https://job-boards.greenhouse.io/ultragenyxpharmaceutical/jobs/4725838005?gh_jid=4725838005",
+      "what": "Employer's own job posting (company self-description)",
+      "accessed": "2026-09-10"
+    },
+    {
+      "url": "https://www.ultragenyx.com",
+      "what": "Company website",
+      "accessed": "2026-09-10"
+    }
+  ],
+  "last_verified": "2026-09-10"
+}
