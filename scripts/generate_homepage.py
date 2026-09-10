@@ -76,7 +76,7 @@ def build_job_row_html(job):
     title = html.escape(job.get("title", ""))
     location = html.escape(job.get("location", ""))
     slug = job.get("slug", "")
-    detail_url = f"jobs/{slug}.html" if slug else html.escape(job.get("url", "#"))
+    detail_url = f"jobs/{slug}" if slug else html.escape(job.get("url", "#"))
     color = get_avatar_color(company_raw)
     initial = html.escape(company_raw[0].upper()) if company_raw else "?"
     logo_url = job.get("logo_url", "")

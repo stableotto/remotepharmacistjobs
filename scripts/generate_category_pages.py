@@ -227,7 +227,7 @@ def build_job_row_html(job):
     title = html.escape(job.get("title", ""))
     location = html.escape(job.get("location", ""))
     slug = job.get("slug", "")
-    detail_url = f"../jobs/{slug}.html" if slug else html.escape(job.get("url", "#"))
+    detail_url = f"../jobs/{slug}" if slug else html.escape(job.get("url", "#"))
     color = get_avatar_color(company)
     initial = company[0].upper() if company else "?"
     logo_url = job.get("logo_url", "")
@@ -304,16 +304,19 @@ CATEGORY_TEMPLATE = Template("""\
       </button>
       <div class="site-nav-links">
         <a href="../">Jobs</a>
-        <a href="../categories.html" class="active">Categories</a>
-        <a href="../about.html">About</a>
-        <a href="../post-a-job.html" class="nav-cta">Post a Job</a>
+        <a href="../companies/">Companies</a>
+        <a href="../categories" class="active">Categories</a>
+        <a href="../licensure/">Licensure</a>
+        <a href="../salary">Salary</a>
+        <a href="../about">About</a>
+        <a href="../post-a-job" class="nav-cta">Post a Job</a>
       </div>
     </div>
   </nav>
 
   <div class="container">
     <nav class="breadcrumb">
-      <a href="../">Home</a> &rsaquo; <a href="../categories.html">Categories</a> &rsaquo; <span>${name}</span>
+      <a href="../">Home</a> &rsaquo; <a href="../categories">Categories</a> &rsaquo; <span>${name}</span>
     </nav>
 
     <div class="category-hero">
@@ -343,9 +346,12 @@ CATEGORY_TEMPLATE = Template("""\
       <div class="footer-col">
         <h4>Navigate</h4>
         <a href="../">Jobs</a>
-        <a href="../categories.html">Categories</a>
-        <a href="../about.html">About</a>
-        <a href="../post-a-job.html">Post a Job</a>
+        <a href="../companies/">Companies</a>
+        <a href="../categories">Categories</a>
+        <a href="../licensure/">Licensure</a>
+        <a href="../salary">Salary</a>
+        <a href="../about">About</a>
+        <a href="../post-a-job">Post a Job</a>
       </div>
     </div>
   </footer>
@@ -384,9 +390,12 @@ INDEX_TEMPLATE = Template("""\
       </button>
       <div class="site-nav-links">
         <a href="/">Jobs</a>
-        <a href="categories.html" class="active">Categories</a>
-        <a href="about.html">About</a>
-        <a href="post-a-job.html" class="nav-cta">Post a Job</a>
+        <a href="companies/">Companies</a>
+        <a href="categories" class="active">Categories</a>
+        <a href="licensure/">Licensure</a>
+        <a href="salary">Salary</a>
+        <a href="about">About</a>
+        <a href="post-a-job" class="nav-cta">Post a Job</a>
       </div>
     </div>
   </nav>
@@ -411,9 +420,12 @@ INDEX_TEMPLATE = Template("""\
       <div class="footer-col">
         <h4>Navigate</h4>
         <a href="/">Jobs</a>
-        <a href="categories.html">Categories</a>
-        <a href="about.html">About</a>
-        <a href="post-a-job.html">Post a Job</a>
+        <a href="companies/">Companies</a>
+        <a href="categories">Categories</a>
+        <a href="licensure/">Licensure</a>
+        <a href="salary">Salary</a>
+        <a href="about">About</a>
+        <a href="post-a-job">Post a Job</a>
       </div>
     </div>
   </footer>
@@ -436,16 +448,23 @@ def main():
         matching = [j for j in jobs if matches_category(j, cat)]
         cat_data.append({**cat, "jobs": matching, "count": len(matching)})
 
-    # Generate each category page
+    # Generate every category page, including those with no current openings.
+    # Skipping them used to leave the previous run's page on disk: stale jobs,
+    # stale navigation, still listed in the sitemap and still indexable.
     for cat in cat_data:
-        if cat["count"] == 0:
-            continue
-
-        job_rows = "\n".join(build_job_row_html(j) for j in cat["jobs"])
+        if cat["count"]:
+            job_rows = "\n".join(build_job_row_html(j) for j in cat["jobs"])
+        else:
+            job_rows = (
+                '<p class="no-results">No open roles in this category right now. '
+                'This page stays up so you can check back &mdash; the '
+                '<a href="../">jobs feed</a> updates daily, or browse the '
+                'categories below.</p>'
+            )
 
         other_cats = [c for c in cat_data if c["slug"] != cat["slug"] and c["count"] > 0]
         other_html = "\n".join(
-            f'<a href="{c["slug"]}.html" class="category-link">{html.escape(c["name"])} <span>({c["count"]})</span></a>'
+            f'<a href="{c["slug"]}" class="category-link">{html.escape(c["name"])} <span>({c["count"]})</span></a>'
             for c in other_cats
         )
 
@@ -484,7 +503,7 @@ def main():
 
     # Generate categories index
     cards_html = "\n".join(
-        f'<a href="category/{c["slug"]}.html" class="category-card">'
+        f'<a href="category/{c["slug"]}" class="category-card">'
         f'<h3>{html.escape(c["name"])}</h3>'
         f'<p>{html.escape(c["intro"][:120])}...</p>'
         f'<span class="category-count">{c["count"]} jobs</span>'

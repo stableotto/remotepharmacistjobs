@@ -51,6 +51,7 @@ NAV = """  <nav class="site-nav">
         <a href="../">Jobs</a>
         <a href="../companies/">Companies</a>
         <a href="../categories">Categories</a>
+        <a href="../licensure/">Licensure</a>
         <a href="../salary">Salary</a>
         <a href="../about">About</a>
         <a href="../post-a-job" class="nav-cta">Post a Job</a>

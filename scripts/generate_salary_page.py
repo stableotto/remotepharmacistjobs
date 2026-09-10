@@ -136,7 +136,7 @@ def main():
     top_jobs = sorted(salary_entries, key=lambda x: -x["annual_max"])[:10]
     top_jobs_html = ""
     for job in top_jobs:
-        link = f'<a href="jobs/{job["slug"]}.html">' if job["slug"] else ""
+        link = f'<a href="jobs/{job["slug"]}">' if job["slug"] else ""
         end_link = "</a>" if job["slug"] else ""
         top_jobs_html += f'''
       <div class="salary-job-row">
@@ -177,9 +177,12 @@ def main():
       </button>
       <div class="site-nav-links">
         <a href="/">Jobs</a>
-        <a href="categories.html">Categories</a>
-        <a href="about.html">About</a>
-        <a href="post-a-job.html" class="nav-cta">Post a Job</a>
+        <a href="companies/">Companies</a>
+        <a href="categories">Categories</a>
+        <a href="licensure/">Licensure</a>
+        <a href="salary">Salary</a>
+        <a href="about">About</a>
+        <a href="post-a-job" class="nav-cta">Post a Job</a>
       </div>
     </div>
   </nav>
@@ -230,9 +233,12 @@ def main():
       <div class="footer-col">
         <h4>Navigate</h4>
         <a href="/">Jobs</a>
-        <a href="categories.html">Categories</a>
-        <a href="about.html">About</a>
-        <a href="post-a-job.html">Post a Job</a>
+        <a href="companies/">Companies</a>
+        <a href="categories">Categories</a>
+        <a href="licensure/">Licensure</a>
+        <a href="salary">Salary</a>
+        <a href="about">About</a>
+        <a href="post-a-job">Post a Job</a>
       </div>
     </div>
   </footer>

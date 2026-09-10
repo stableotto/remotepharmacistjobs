@@ -7,6 +7,7 @@ import html
 import re
 from string import Template
 from datetime import datetime, timedelta
+from urllib.parse import urljoin
 
 SITE_URL = "https://remotepharmacistjobs.com"
 
@@ -46,9 +47,12 @@ PAGE_TEMPLATE = Template("""\
       </button>
       <div class="site-nav-links">
         <a href="../">Jobs</a>
-        <a href="../categories.html">Categories</a>
-        <a href="../about.html">About</a>
-        <a href="../post-a-job.html" class="nav-cta">Post a Job</a>
+        <a href="../companies/">Companies</a>
+        <a href="../categories">Categories</a>
+        <a href="../licensure/">Licensure</a>
+        <a href="../salary">Salary</a>
+        <a href="../about">About</a>
+        <a href="../post-a-job" class="nav-cta">Post a Job</a>
       </div>
     </div>
   </nav>
@@ -109,9 +113,12 @@ PAGE_TEMPLATE = Template("""\
       <div class="footer-col">
         <h4>Navigate</h4>
         <a href="../">Jobs</a>
-        <a href="../categories.html">Categories</a>
-        <a href="../about.html">About</a>
-        <a href="../post-a-job.html">Post a Job</a>
+        <a href="../companies/">Companies</a>
+        <a href="../categories">Categories</a>
+        <a href="../licensure/">Licensure</a>
+        <a href="../salary">Salary</a>
+        <a href="../about">About</a>
+        <a href="../post-a-job">Post a Job</a>
       </div>
     </div>
   </footer>
@@ -165,6 +172,28 @@ def truncate(s, length=60):
     if len(s) <= length:
         return s
     return s[:length-3] + "..."
+
+
+def absolutize_links(desc_html, job_url):
+    """Resolve relative href/src in scraped descriptions against the employer.
+
+    Scraped copy sometimes carries the employer's own root-relative links
+    (/us/en/home.html). Left alone they resolve against this site, so Google
+    crawls 404s that were never ours. Cloudflare email-protection stubs are
+    unwrapped to nothing useful off-site, so their href is dropped.
+    """
+    if not desc_html or not job_url:
+        return desc_html
+
+    def fix(m):
+        attr, url = m.group(1), m.group(2)
+        if url.startswith(("http://", "https://", "//", "mailto:", "tel:", "#", "data:")):
+            return m.group(0)
+        if "/cdn-cgi/l/email-protection" in url:
+            return f'{attr}="#"'
+        return f'{attr}="{urljoin(job_url, url)}"'
+
+    return re.sub(r'(href|src)="([^"]*)"', fix, desc_html)
 
 
 def strip_html_tags(text):
@@ -339,7 +368,7 @@ def build_similar_jobs_html(job, all_jobs, max_count=4):
         else:
             logo_html = f'<div class="job-logo-fallback" style="background-color:{color}">{html.escape(initial)}</div>'
 
-        rows.append(f'''<a href="{slug}.html" class="job-row">
+        rows.append(f'''<a href="{slug}" class="job-row">
       <div class="job-row-left">
         <div class="job-logo-wrap">{logo_html}</div>
         <div class="job-row-info">
@@ -373,7 +402,8 @@ def generate_page(job, all_jobs=None):
     skill_level = job.get("skill_level", "")
     is_expired = job.get("expired", False)
 
-    description = job.get("description_html", "")
+    description = absolutize_links(job.get("description_html", ""),
+                                   job.get("url") or job.get("absolute_url", ""))
     if not description:
         description = "<p>No description available. Click the Apply button to view the full job posting.</p>"
 
