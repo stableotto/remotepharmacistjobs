@@ -506,6 +506,253 @@ def generate_page(job, all_jobs=None):
     return slug, page_html
 
 
+JOBS_INDEX_NAV = """  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a href="../" class="site-nav-logo">
+        <img src="../logo.svg" alt="Remote Pharmacist Jobs" height="32">
+      </a>
+      <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-nav-links">
+        <a href="../" class="active">Jobs</a>
+        <a href="../companies/">Companies</a>
+        <a href="../categories">Categories</a>
+        <a href="../licensure/">Licensure</a>
+        <a href="../salary">Salary</a>
+        <a href="../about">About</a>
+        <a href="../post-a-job" class="nav-cta">Post a Job</a>
+      </div>
+    </div>
+  </nav>"""
+
+JOBS_INDEX_FOOTER = """  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-col">
+        <h4>Remote Pharmacist Jobs</h4>
+        <p>Direct listings only. No recruiters, no middlemen.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="../">Jobs</a>
+        <a href="../companies/">Companies</a>
+        <a href="../categories">Categories</a>
+        <a href="../licensure/">Licensure</a>
+        <a href="../salary">Salary</a>
+        <a href="../about">About</a>
+        <a href="../post-a-job">Post a Job</a>
+      </div>
+    </div>
+  </footer>"""
+
+
+def build_jobs_index(jobs, employers):
+    """The complete listing at /jobs — every open role on one page.
+
+    Job detail pages already live under site/jobs/, so the index belongs here
+    too; it is added to the keep set in main() or the prune step would delete
+    it on the next run.
+    """
+    active = [j for j in jobs if not j.get("expired")]
+    active.sort(key=lambda j: j.get("posted_at") or j.get("first_seen") or "", reverse=True)
+
+    type_of = {}
+    for record in employers.values():
+        for _ in (0,):
+            type_of[record["slug"]] = record.get("employer_type", "other")
+
+    rows = []
+    for job in active:
+        slug = job.get("slug", "")
+        company = job.get("company", "")
+        title = job.get("title", "")
+        location = job.get("location", "")
+        salary = (job.get("salary") or {}).get("display", "")
+        etype = type_of.get(job.get("employer_slug", ""), "other")
+        color = get_avatar_color(company)
+        initial = html.escape(company[:1].upper() or "?")
+        logo = job.get("logo_url", "")
+        if logo:
+            badge = (
+                f'<img class="job-logo" src="../{html.escape(logo)}" alt="" loading="lazy" '
+                f'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+                f'<div class="job-logo-fallback" style="background-color:{color};display:none">{initial}</div>'
+            )
+        else:
+            badge = f'<div class="job-logo-fallback" style="background-color:{color}">{initial}</div>'
+
+        meta = [html.escape(company)]
+        if salary:
+            meta.append(f'<span class="meta-salary">{html.escape(salary)}</span>')
+        blob = " ".join([company, title, location]).lower()
+        meta_line = '<span class="meta-dot"> &middot; </span>'.join(meta)
+        esc_slug, esc_type = html.escape(slug), html.escape(etype)
+        esc_title, esc_loc = html.escape(title), html.escape(location)
+        esc_blob = html.escape(blob)
+        paid_attr = "true" if salary else "false"
+        rows.append(
+            f'      <a href="{esc_slug}" class="job-row" data-type="{esc_type}" '
+            f'data-paid="{paid_attr}" data-search="{esc_blob}">'
+            f'<div class="job-row-left">'
+            f'<div class="job-logo-wrap">{badge}</div>'
+            f'<div class="job-row-info">'
+            f'<div class="job-row-title">{esc_title}</div>'
+            f'<div class="job-row-meta">{meta_line}</div>'
+            f'</div></div>'
+            f'<div class="job-row-right">'
+            f'<div class="job-row-location">{esc_loc}</div>'
+            f'</div></a>'
+        )
+
+    counts = {}
+    for job in active:
+        etype = type_of.get(job.get("employer_slug", ""), "other")
+        counts[etype] = counts.get(etype, 0) + 1
+    paid = len([j for j in active if (j.get("salary") or {}).get("display")])
+
+    filters = [f'      <button type="button" class="pill" data-filter="all" aria-pressed="true">'
+               f'All ({len(active)})</button>',
+               f'      <button type="button" class="pill" data-filter="paid" aria-pressed="false">'
+               f'Salary shown ({paid})</button>']
+    for key, label in E.EMPLOYER_TYPES.items():
+        if counts.get(key):
+            filters.append(
+                f'      <button type="button" class="pill" data-filter="{key}" aria-pressed="false">'
+                f'{html.escape(label)} ({counts[key]})</button>')
+
+    cats = []
+    for slug_, label in [("clinical-pharmacist", "Clinical pharmacist"),
+                         ("pharmacy-technician", "Pharmacy technician"),
+                         ("managed-care-pharmacist", "Managed care"),
+                         ("specialty-pharmacy", "Specialty pharmacy"),
+                         ("prior-authorization", "Prior authorization"),
+                         ("medication-therapy-management", "MTM")]:
+        if os.path.exists(f"site/category/{slug_}.html"):
+            cats.append(f'        <a href="../category/{slug_}" class="category-link">'
+                        f'{html.escape(label)}</a>')
+
+    ld = json.dumps([
+        {"@context": "https://schema.org", "@type": "ItemList",
+         "name": "All remote pharmacy jobs",
+         "numberOfItems": len(active),
+         "itemListElement": [
+             {"@type": "ListItem", "position": i + 1,
+              "url": f"{SITE_URL}/jobs/{j['slug']}", "name": j.get("title", "")}
+             for i, j in enumerate(active) if j.get("slug")]},
+        {"@context": "https://schema.org", "@type": "BreadcrumbList",
+         "itemListElement": [
+             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
+             {"@type": "ListItem", "position": 2, "name": "Jobs", "item": f"{SITE_URL}/jobs"}]},
+    ], indent=2)
+
+    desc = (f"All {len(active)} open remote pharmacy jobs, updated daily. Filter by employer "
+            f"type and pay. Every listing links directly to the employer — no recruiters.")
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Remote Pharmacy Jobs ({len(active)} Open) | Remote Pharmacist Jobs</title>
+  <meta name="description" content="{html.escape(desc)}">
+  <meta property="og:title" content="All Remote Pharmacy Jobs">
+  <meta property="og:description" content="{html.escape(desc)}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{SITE_URL}/jobs">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="{SITE_URL}/jobs">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+{ld}
+  </script>
+</head>
+<body>
+{JOBS_INDEX_NAV}
+
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="../">Home</a> &rsaquo; <span>Jobs</span>
+    </nav>
+
+    <div class="category-hero">
+      <h1>All remote pharmacy jobs</h1>
+      <p>Every open remote pharmacist and pharmacy technician role we track, newest first.
+      {paid} of {len(active)} publish a pay range. Each one links straight to the employer&rsquo;s
+      own listing &mdash; no recruiters, no middlemen.</p>
+    </div>
+
+    <div class="search-wrapper">
+      <input type="search" id="job-search" placeholder="Search by title, company or location"
+             aria-label="Search jobs" autocomplete="off">
+    </div>
+
+    <div class="detail-pills" id="job-filters">
+{chr(10).join(filters)}
+    </div>
+
+    <div class="jobs-list" id="job-list">
+{chr(10).join(rows)}
+    </div>
+
+    <p class="no-results" id="job-empty" hidden>No roles match that filter.</p>
+
+    <div class="browse-categories">
+      <h2>Browse by role</h2>
+      <div class="category-links">
+{chr(10).join(cats)}
+      </div>
+    </div>
+  </div>
+
+{JOBS_INDEX_FOOTER}
+  <script>
+  // Progressive enhancement: the full list above is already in the HTML.
+  (function () {{
+    var list = document.getElementById('job-list');
+    if (!list) return;
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.job-row'));
+    var buttons = Array.prototype.slice.call(
+      document.querySelectorAll('#job-filters .pill'));
+    var search = document.getElementById('job-search');
+    var empty = document.getElementById('job-empty');
+    var active = 'all';
+
+    function apply() {{
+      var q = (search.value || '').trim().toLowerCase();
+      var shown = 0;
+      rows.forEach(function (row) {{
+        var okFilter = active === 'all'
+          || (active === 'paid' && row.dataset.paid === 'true')
+          || row.dataset.type === active;
+        var okSearch = !q || (row.dataset.search || '').indexOf(q) !== -1;
+        var show = okFilter && okSearch;
+        row.hidden = !show;
+        if (show) shown++;
+      }});
+      empty.hidden = shown !== 0;
+    }}
+
+    buttons.forEach(function (btn) {{
+      btn.addEventListener('click', function () {{
+        active = btn.dataset.filter;
+        buttons.forEach(function (b) {{
+          b.setAttribute('aria-pressed', String(b === btn));
+          b.style.borderColor = b === btn ? '#7c3aed' : '';
+        }});
+        apply();
+      }});
+    }});
+    search.addEventListener('input', apply);
+  }})();
+  </script>
+</body>
+</html>
+"""
+
 def main():
     jobs_path = "site/jobs.json"
     with open(jobs_path) as f:
@@ -529,13 +776,19 @@ def main():
             f.write(page_html)
         count += 1
 
+    # The complete listing at /jobs. Written here because job pages live in
+    # this directory and the prune below would otherwise delete it.
+    keep.add("index.html")
+    with open(os.path.join(output_dir, "index.html"), "w") as f:
+        f.write(build_jobs_index(jobs, E.load_employers()))
+
     removed = 0
     for fname in os.listdir(output_dir):
         if fname.endswith(".html") and fname not in keep:
             os.remove(os.path.join(output_dir, fname))
             removed += 1
 
-    print(f"Generated {count} job detail pages in {output_dir}/ (removed {removed} stale pages)")
+    print(f"Generated {count} job detail pages + /jobs index in {output_dir}/ (removed {removed} stale pages)")
 
 
 if __name__ == "__main__":

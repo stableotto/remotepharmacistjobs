@@ -21,6 +21,7 @@ def main():
     urls.append(("post-a-job", "0.5", "monthly", today))
     urls.append(("categories", "0.8", "daily", today))
     urls.append(("salary", "0.7", "daily", today))
+    urls.append(("jobs", "0.9", "daily", today))
 
     # Category pages
     cat_dir = "site/category"
