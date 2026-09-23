@@ -807,6 +807,90 @@ body {
   margin-top: 16px;
 }
 
+.post-job-form {
+  max-width: 480px;
+  margin: 24px auto 0;
+  text-align: left;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.form-optional {
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.post-job-submit {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  margin: 8px 0 0;
+}
+
+.post-job-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.form-status {
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status.success {
+  color: #047857;
+}
+
+.form-status.error {
+  color: #b91c1c;
+}
+
 /* FAQ */
 .faq-list {
   display: flex;

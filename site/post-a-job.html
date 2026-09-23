@@ -68,15 +68,34 @@
     <div class="content-section">
       <h2>How it works</h2>
       <p>We scan thousands of company career pages daily for remote pharmacy positions. Your jobs may already be listed automatically.</p>
-      <p>Don't see your listing? Want to make sure your jobs get picked up? Get in touch and we'll add your company to our index.</p>
+      <p>Don't see your listing? Want to make sure your jobs get picked up? Use the form below and we'll add your company to our index.</p>
     </div>
 
     <div class="content-section post-job-cta-section">
       <h2>Get started</h2>
-      <p>Send us your company name and career page URL. We'll handle the rest.</p>
-      <a href="mailto:hello@remotepharmacistjobs.com?subject=Post%20a%20Job%20-%20%5BCompany%20Name%5D&body=Company%20name%3A%20%0ACareer%20page%20URL%3A%20%0A%0AAdditional%20notes%3A%20" class="apply-button post-job-cta">
-        Contact us to post a job
-      </a>
+      <p>Tell us your company name and career page URL. We'll handle the rest.</p>
+      <form class="post-job-form" action="https://formspree.io/f/xvkgrvrd" method="POST">
+        <div class="form-field">
+          <label for="company">Company name</label>
+          <input type="text" id="company" name="company" required autocomplete="organization">
+        </div>
+        <div class="form-field">
+          <label for="career_url">Career page URL</label>
+          <input type="url" id="career_url" name="career_url" required placeholder="https://">
+        </div>
+        <div class="form-field">
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-field">
+          <label for="notes">Additional notes <span class="form-optional">(optional)</span></label>
+          <textarea id="notes" name="notes" rows="3"></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="Post a Job request">
+        <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="apply-button post-job-submit">Submit</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
 
     <div class="content-section">
@@ -117,5 +136,37 @@
       </div>
     </div>
   </footer>
+  <script>
+    (function () {
+      var form = document.querySelector('.post-job-form');
+      if (!form || !window.fetch) return;
+      var status = form.querySelector('.form-status');
+      var button = form.querySelector('button[type="submit"]');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        status.className = 'form-status';
+        status.textContent = '';
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (!res.ok) throw new Error('Request failed');
+          form.reset();
+          status.className = 'form-status success';
+          status.textContent = "Thanks! We'll review your company and get back to you soon.";
+          if (window.gtag) gtag('event', 'post_job_submit');
+        }).catch(function () {
+          status.className = 'form-status error';
+          status.textContent = 'Something went wrong. Please try again in a moment.';
+        }).finally(function () {
+          button.disabled = false;
+          button.textContent = 'Submit';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
