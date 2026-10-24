@@ -18,13 +18,16 @@ PAGE_TEMPLATE = Template("""\
   <script async src="/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} at ${company} | Remote Pharmacist Jobs</title>
+  <title>${page_title}</title>
   <meta name="description" content="${meta_description}">
-  <meta property="og:title" content="${title} at ${company} | Remote Pharmacist Jobs">
+  <meta property="og:title" content="${page_title}">
   <meta property="og:description" content="${meta_description}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="${canonical_url}">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://remotepharmacistjobs.com/og-image.png">
+  <meta property="og:site_name" content="Remote Pharmacist Jobs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://remotepharmacistjobs.com/og-image.png">
   <meta name="twitter:title" content="${title} at ${company}">
   <meta name="twitter:description" content="${meta_description}">
   ${noindex}<link rel="canonical" href="${canonical_url}">
@@ -165,6 +168,42 @@ def truncate(s, length=60):
     if len(s) <= length:
         return s
     return s[:length-3] + "..."
+
+
+def build_page_title(title, company):
+    """Fit the <title> in 60 chars: drop the site suffix, then the company, then trim."""
+    for candidate in (f"{title} at {company} | Remote Pharmacist Jobs", f"{title} at {company}", title):
+        if len(candidate) <= 60:
+            return candidate
+    return truncate(title, 60)
+
+
+def fit_text(text, max_len):
+    """Cut text at a word boundary so it fits in max_len chars."""
+    if len(text) <= max_len:
+        return text
+    cut = text[:max_len - 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return cut + "\u2026"
+
+
+def build_meta_description(title, company, location, salary, desc_html):
+    """Meta description of 120-155 chars: role, employer, location, pay, then the description."""
+    lead = f"{title} at {company}, {location}"
+    if salary and salary.get("display"):
+        lead += f", {salary['display']}"
+    lead += "."
+    desc_text = strip_html_tags(desc_html) if desc_html else ""
+    text = f"{lead} {desc_text}".strip()
+    # Short or missing descriptions: pad with the first true statement that fits
+    for tail in (
+        " Apply directly on the employer's career page, with no recruiters or middlemen.",
+        " Apply directly on the employer's career page.",
+        " Apply directly to the employer.",
+    ):
+        if len(text) < 120 and len(text + tail) <= 155:
+            text += tail
+            break
+    return fit_text(text, 155)
 
 
 def strip_html_tags(text):
@@ -377,10 +416,10 @@ def generate_page(job, all_jobs=None):
     if not description:
         description = "<p>No description available. Click the Apply button to view the full job posting.</p>"
 
-    meta_desc = f"{title} at {company} - Remote position"
-    if salary and salary.get("display"):
-        meta_desc += f" | {salary['display']}"
-    meta_desc += f" | {location}"
+    # Employer descriptions sometimes carry their own <h1>s; the job title is the page's only h1
+    description = re.sub(r'<(/?)h1\b', r'<\1h2', description, flags=re.IGNORECASE)
+
+    meta_desc = build_meta_description(title, company, location, salary, job.get("description_html", ""))
 
     # Build meta line items (dot-separated like the reference design)
     skill_map = {"entry": "Entry-level", "mid": "Mid-level", "senior": "Senior"}
@@ -451,6 +490,7 @@ def generate_page(job, all_jobs=None):
 
     page_html = PAGE_TEMPLATE.substitute(
         title=html.escape(title),
+        page_title=html.escape(build_page_title(title, company)),
         company=html.escape(company),
         meta_description=html.escape(meta_desc),
         canonical_url=f"{SITE_URL}/jobs/{slug}",

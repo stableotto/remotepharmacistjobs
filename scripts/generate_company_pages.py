@@ -103,13 +103,16 @@ COMPANY_TEMPLATE = Template("""\
   <script async src="/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Remote Jobs at ${company} | Remote Pharmacist Jobs</title>
+  <title>${page_title}</title>
   <meta name="description" content="${meta_description}">
-  <meta property="og:title" content="Remote Jobs at ${company} | Remote Pharmacist Jobs">
+  <meta property="og:title" content="${page_title}">
   <meta property="og:description" content="${meta_description}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${canonical_url}">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://remotepharmacistjobs.com/og-image.png">
+  <meta property="og:site_name" content="Remote Pharmacist Jobs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://remotepharmacistjobs.com/og-image.png">
   <meta name="twitter:title" content="Remote Jobs at ${company}">
   <meta name="twitter:description" content="${meta_description}">
   <link rel="canonical" href="${canonical_url}">
@@ -191,13 +194,16 @@ INDEX_TEMPLATE = Template("""\
   <script async src="/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Companies Hiring Remote Pharmacists | Remote Pharmacist Jobs</title>
+  <title>Companies Hiring Remote Pharmacists</title>
   <meta name="description" content="Browse companies hiring remote pharmacists. See all open remote pharmacy positions by employer. Direct listings only — no recruiters.">
   <meta property="og:title" content="Companies Hiring Remote Pharmacists">
   <meta property="og:description" content="Browse companies hiring remote pharmacists. Direct employer listings only.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remotepharmacistjobs.com/companies">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://remotepharmacistjobs.com/og-image.png">
+  <meta property="og:site_name" content="Remote Pharmacist Jobs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://remotepharmacistjobs.com/og-image.png">
   <link rel="canonical" href="https://remotepharmacistjobs.com/companies">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
@@ -297,7 +303,14 @@ def main():
             for c in other_companies
         )
 
-        meta_desc = f"Browse {comp['count']} remote pharmacy job{'s' if comp['count'] != 1 else ''} at {comp['name']}. Apply directly — no recruiters, no middlemen."
+        # Meta description of 120-155 chars; the shorter form is for long company names
+        jobs_phrase = f"{comp['count']} remote pharmacy job{'s' if comp['count'] != 1 else ''} at {comp['name']}"
+        meta_desc = f"Browse {jobs_phrase}, updated daily. Every listing links straight to {comp['name']}'s career page, with no recruiters or middlemen."
+        if len(meta_desc) > 155:
+            meta_desc = f"Browse {jobs_phrase}. Every listing links straight to the employer's career page, with no recruiters."
+        page_title = f"Remote Jobs at {comp['name']} | Remote Pharmacist Jobs"
+        if len(page_title) > 60:
+            page_title = f"Remote Jobs at {comp['name']}"
         intro = f"View all open remote pharmacy positions at {comp['name']}. Every listing links directly to {comp['name']}'s career page."
 
         json_ld = json.dumps({
@@ -321,6 +334,7 @@ def main():
 
         page_html = COMPANY_TEMPLATE.substitute(
             company=html.escape(comp["name"]),
+            page_title=html.escape(page_title),
             meta_description=html.escape(meta_desc),
             canonical_url=f"{SITE_URL}/companies/{comp['slug']}",
             logo_html=logo_html,

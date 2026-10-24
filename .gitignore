@@ -4,4 +4,5 @@ __pycache__/
 .DS_Store
 node_modules/
 .gstack/
-.claude/
+.claude/*
+!.claude/settings.json

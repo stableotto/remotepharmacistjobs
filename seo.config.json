@@ -1,0 +1,56 @@
+{
+  "engineSite": "remotepharmacistjobs",
+  "url": "https://remotepharmacistjobs.com",
+  "framework": "static-html-python-generators",
+  "build": "python scripts/generate_pages.py && python scripts/generate_category_pages.py && python scripts/generate_company_pages.py && python scripts/generate_salary_page.py && python scripts/generate_homepage.py && python scripts/generate_sitemap.py",
+  "lint": null,
+  "deploy": "Cloudflare Pages serves site/. Deployed only by .github/workflows/update-jobs.yml (daily 06:00 UTC, or workflow_dispatch), which runs filter_jobs.py and scrape_details.py first, then the build above, commits site/ and runs wrangler pages deploy. Pushing to main does not deploy.",
+  "content": {
+    "jobs": {
+      "source": "site/jobs.json (written by scripts/filter_jobs.py + scripts/scrape_details.py; never hand-edit)",
+      "template": "scripts/generate_pages.py PAGE_TEMPLATE",
+      "route": "/jobs/<slug>",
+      "notes": "slug = {company}-{title}-{md5(url)[:6]}; never change slug logic. Expired jobs get noindex and are left out of the sitemap."
+    },
+    "categories": {
+      "source": "scripts/generate_category_pages.py CATEGORIES list (slug, name, h1, meta_description, intro, keyword rules); copy an existing entry to add one",
+      "template": "CATEGORY_TEMPLATE + INDEX_TEMPLATE in the same file",
+      "route": "/category/<slug>, index at /categories"
+    },
+    "companies": {
+      "source": "generated from jobs.json; display names in scripts/filter_jobs.py company mapping",
+      "template": "scripts/generate_company_pages.py COMPANY_TEMPLATE + INDEX_TEMPLATE",
+      "route": "/companies/<slug>, index at /companies"
+    },
+    "salary": {
+      "source": "computed from jobs.json salaries",
+      "template": "scripts/generate_salary_page.py inline f-string",
+      "route": "/salary"
+    },
+    "pages": {
+      "source": "hand-written site/index.html (job list and JSON-LD injected between markers by scripts/generate_homepage.py), site/about.html, site/post-a-job.html",
+      "format": "plain HTML; copy site/about.html as the model for a new static page, then add it to scripts/generate_sitemap.py static list",
+      "route": "/<name> (file site/<name>.html)"
+    }
+  },
+  "sitemap": "scripts/generate_sitemap.py writes site/sitemap.xml (listed in site/robots.txt)",
+  "templateRules": [
+    "Fix SEO issues in the generator templates in scripts/, never in generated files under site/jobs, site/category, site/companies, site/salary.html, site/categories.html.",
+    "Keep all templates consistent: generate_pages.py, generate_category_pages.py (2), generate_company_pages.py (2), generate_salary_page.py, plus hand-written index.html, about.html, post-a-job.html.",
+    "Every template keeps the gtag script (/analytics.js, G-C0EB4GHJS3) immediately after <head>.",
+    "After changing a template, re-run the build and commit the regenerated site/ files."
+  ],
+  "brand": {
+    "voice": "plain, direct, job-seeker first; no hype",
+    "cta": "Apply on the employer's career page (outbound Apply button); secondary: /post-a-job for employers",
+    "never": [
+      "A URL ending in .html in any canonical tag, og:url, sitemap entry or JSON-LD URL; these must be extensionless (https://remotepharmacistjobs.com/jobs/<slug>, not .../<slug>.html). Internal <a href> links may keep .html.",
+      "Changing the job slug logic or any existing page URL",
+      "Applicant, visitor or traffic numbers",
+      "\"guaranteed\" or \"verified remote\"",
+      "Prices for featured placements",
+      "Offering recruiter or staffing-agency listings"
+    ]
+  },
+  "facts": "seo/facts.md"
+}

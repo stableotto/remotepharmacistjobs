@@ -134,9 +134,18 @@ def build_json_ld(jobs):
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "Organization",
+                "@id": f"{SITE_URL}/#organization",
+                "name": "Remote Pharmacist Jobs",
+                "url": SITE_URL,
+                "email": "hello@remotepharmacistjobs.com",
+                "description": "A job board of remote pharmacist and pharmacy technician jobs, linking directly to employer career pages.",
+            },
+            {
                 "@type": "WebSite",
                 "name": "Remote Pharmacist Jobs",
                 "url": SITE_URL,
+                "publisher": {"@id": f"{SITE_URL}/#organization"},
                 "description": "Browse remote pharmacist jobs updated daily from 7,000+ companies. Direct employer listings only.",
                 "potentialAction": {
                     "@type": "SearchAction",

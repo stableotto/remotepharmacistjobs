@@ -155,12 +155,15 @@ def main():
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Remote Pharmacist Salary Guide | Remote Pharmacist Jobs</title>
-  <meta name="description" content="Remote pharmacist salary data from real job listings. Average salary {fmt(overall_avg)}/year. See salaries by role type and the highest-paying remote pharmacy positions.">
+  <meta name="description" content="Remote pharmacist salary data from real job listings: average {fmt(overall_avg)}/year, pay by role type, and the highest-paying remote pharmacy jobs.">
   <meta property="og:title" content="Remote Pharmacist Salary Guide">
   <meta property="og:description" content="Remote pharmacist salary data from real job listings. Average salary {fmt(overall_avg)}/year.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{SITE_URL}/salary">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://remotepharmacistjobs.com/og-image.png">
+  <meta property="og:site_name" content="Remote Pharmacist Jobs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://remotepharmacistjobs.com/og-image.png">
   <link rel="canonical" href="{SITE_URL}/salary">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">

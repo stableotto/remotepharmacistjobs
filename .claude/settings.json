@@ -1,0 +1,8 @@
+{
+  "extraKnownMarketplaces": {
+    "stableotto": {
+      "source": { "source": "github", "repo": "stableotto/seo-engine" }
+    }
+  },
+  "enabledPlugins": { "seo@stableotto": true }
+}
