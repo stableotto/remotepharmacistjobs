@@ -1,0 +1,29 @@
+# Remote Pharmacist Jobs
+
+> A free job board of remote pharmacist and pharmacy technician jobs, updated daily. Listings are pulled from employer career pages (Greenhouse, Workday, Lever) and every "Apply" link goes straight to the hiring company. No recruiter or staffing-agency postings, no sign-up walls.
+
+- Covers clinical pharmacist, pharmacy technician, pharmacovigilance, MTM, prior authorization, specialty, oncology, verification and pharmacy leadership roles that are remote.
+- Salary is shown when the employer publishes it.
+- Listings that disappear from the employer's site are marked expired and removed from search.
+
+## Key pages
+
+- [All remote pharmacy jobs](https://remotepharmacistjobs.com): the full list of active jobs
+- [Job categories](https://remotepharmacistjobs.com/categories): jobs grouped by role type
+- [Companies hiring](https://remotepharmacistjobs.com/companies): jobs grouped by employer
+- [Remote pharmacist salary guide](https://remotepharmacistjobs.com/salary): pay data from current listings
+- [About](https://remotepharmacistjobs.com/about): how listings are collected
+- [Post a job](https://remotepharmacistjobs.com/post-a-job): for employers who want their career page indexed
+
+## Popular categories
+
+- [Remote pharmacy technician jobs](https://remotepharmacistjobs.com/category/remote-pharmacy-technician-jobs)
+- [Remote clinical pharmacist jobs](https://remotepharmacistjobs.com/category/remote-clinical-pharmacist-jobs)
+- [Work from home pharmacist jobs](https://remotepharmacistjobs.com/category/work-from-home-pharmacist-jobs)
+- [Remote pharmacovigilance jobs](https://remotepharmacistjobs.com/category/remote-pharmacovigilance-jobs)
+- [Remote MTM pharmacist jobs](https://remotepharmacistjobs.com/category/remote-mtm-pharmacist-jobs)
+- [Remote prior authorization pharmacist jobs](https://remotepharmacistjobs.com/category/remote-prior-authorization-pharmacist-jobs)
+
+## Contact
+
+hello@remotepharmacistjobs.com

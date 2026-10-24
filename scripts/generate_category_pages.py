@@ -56,7 +56,7 @@ CATEGORIES = [
         "slug": "remote-prior-authorization-pharmacist-jobs",
         "keywords": ["prior authorization"],
         "h1": "Remote Prior Authorization Pharmacist Jobs",
-        "meta_description": "Browse remote prior authorization pharmacist and pharmacy technician jobs. Direct employer listings updated daily.",
+        "meta_description": "Browse remote prior authorization pharmacist and pharmacy technician jobs. Direct employer listings updated daily, with no recruiter middlemen.",
         "intro": "Find remote prior authorization roles for pharmacists and pharmacy technicians. Review medication requests, apply clinical criteria, and support patient access to care.",
     },
     {
@@ -73,7 +73,7 @@ CATEGORIES = [
         "keywords": ["manager", "supervisor", "lead"],
         "title_must_also_contain": ["pharmacy", "pharmacist", "pharmaceutical", "pharmacovigilance"],
         "h1": "Remote Pharmacy Manager Jobs",
-        "meta_description": "Browse remote pharmacy manager, supervisor, and lead pharmacist jobs. Direct employer listings updated daily.",
+        "meta_description": "Browse remote pharmacy manager, supervisor, and lead pharmacist jobs. Direct employer listings updated daily, with no recruiter middlemen.",
         "intro": "Find remote pharmacy management roles including pharmacy managers, supervisors, team leads, and senior individual contributors. Direct links to employer career pages.",
     },
     # ── "Work from home" synonym pages (high volume, 1K–10K) ──
@@ -276,13 +276,16 @@ CATEGORY_TEMPLATE = Template("""\
   <script async src="/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} | Remote Pharmacist Jobs</title>
+  <title>${page_title}</title>
   <meta name="description" content="${meta_description}">
-  <meta property="og:title" content="${title} | Remote Pharmacist Jobs">
+  <meta property="og:title" content="${page_title}">
   <meta property="og:description" content="${meta_description}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${canonical_url}">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://remotepharmacistjobs.com/og-image.png">
+  <meta property="og:site_name" content="Remote Pharmacist Jobs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://remotepharmacistjobs.com/og-image.png">
   <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="${meta_description}">
   <link rel="canonical" href="${canonical_url}">
@@ -361,13 +364,16 @@ INDEX_TEMPLATE = Template("""\
   <script async src="/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Browse Remote Pharmacist Job Categories | Remote Pharmacist Jobs</title>
+  <title>Remote Pharmacist Job Categories | Remote Pharmacist Jobs</title>
   <meta name="description" content="Browse remote pharmacist jobs by category. Clinical pharmacist, pharmacy technician, pharmacovigilance, and more. Direct employer listings only.">
   <meta property="og:title" content="Browse Remote Pharmacist Job Categories">
   <meta property="og:description" content="Browse remote pharmacist jobs by category. Direct employer listings only.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remotepharmacistjobs.com/categories">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://remotepharmacistjobs.com/og-image.png">
+  <meta property="og:site_name" content="Remote Pharmacist Jobs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://remotepharmacistjobs.com/og-image.png">
   <link rel="canonical" href="https://remotepharmacistjobs.com/categories">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet">
@@ -468,6 +474,8 @@ def main():
 
         page_html = CATEGORY_TEMPLATE.substitute(
             title=html.escape(cat["h1"]),
+            # Keep the <title> within 60 chars by dropping the site suffix on long names
+            page_title=html.escape(cat["h1"] if len(cat["h1"]) > 35 else f'{cat["h1"]} | Remote Pharmacist Jobs'),
             name=html.escape(cat["name"]),
             meta_description=html.escape(cat["meta_description"]),
             canonical_url=f"{SITE_URL}/category/{cat['slug']}",
